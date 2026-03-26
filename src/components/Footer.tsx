@@ -47,7 +47,7 @@ export const Footer = () => {
   }, []);
 
   return (
-    <footer className="relative z-10 bg-background text-neu-text-primary pt-20 pb-12 transition-colors duration-300">
+    <footer className="relative z-10 text-neu-text-primary pt-20 pb-12 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 text-center">
         
         {/* Testimonial Slideshow */}

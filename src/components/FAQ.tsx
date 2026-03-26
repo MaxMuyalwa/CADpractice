@@ -33,7 +33,7 @@ export const FAQ = () => {
   ];
 
   return (
-    <section className="relative z-10 py-24 bg-background transition-colors duration-300">
+    <section className="relative z-10 py-24 transition-colors duration-300">
       <div className="max-w-3xl mx-auto px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-black mb-4 text-neu-text-primary">Educator FAQs</h2>
@@ -44,7 +44,7 @@ export const FAQ = () => {
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className={`bg-background rounded-2xl transition-all duration-300 ${
+              className={`rounded-2xl transition-all duration-300 ${
                 openFaq === index 
                 ? 'shadow-[inset_4px_4px_8px_var(--shadow-dark),inset_-4px_-4px_8px_var(--shadow-light)]' 
                 : 'shadow-[6px_6px_12px_var(--shadow-dark),-3px_-3px_6px_var(--shadow-light)]'

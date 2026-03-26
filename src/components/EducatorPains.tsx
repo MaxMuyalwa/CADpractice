@@ -55,7 +55,7 @@ export const EducatorPains = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="educator-pains-container relative bg-background">
+    <div ref={containerRef} className="educator-pains-container relative">
       <style>{`
         .educator-pains-container .panel {
           min-height: 100vh;
@@ -65,7 +65,6 @@ export const EducatorPains = () => {
           justify-content: center;
           position: relative;
           overflow: hidden;
-          background-color: var(--background);
           color: var(--foreground);
           border-bottom: 1px solid var(--matrix-border);
         }

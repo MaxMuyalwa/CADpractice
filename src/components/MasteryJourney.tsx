@@ -66,7 +66,7 @@ export const MasteryJourney = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="bg-background min-h-[200vh] px-8 sm:px-20 relative overflow-visible cad-scroll-wrapper"
+      className="min-h-[200vh] px-8 sm:px-20 relative overflow-visible cad-scroll-wrapper"
     >
       <div 
         ref={contentRef}

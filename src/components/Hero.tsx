@@ -44,24 +44,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative pt-20 lg:pt-32 pb-16 lg:pb-24 bg-background transition-colors duration-300 overflow-hidden hero-section">
-      {/* Background Grid Overlay */}
-      <div 
-        ref={gridRef}
-        className="hero-bg-grid absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.07] z-0"
-        style={{
-          backgroundImage: `linear-gradient(to right, #28A745 1px, transparent 1px), linear-gradient(to bottom, #28A745 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      />
-
-      {/* Scanner Line */}
-      <div 
-        ref={scannerRef}
-        className="hero-scanner-line absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-matrix-green to-transparent z-10 pointer-events-none opacity-50 blur-[1px]"
-        style={{ boxShadow: '0 0 15px var(--matrix-green)' }}
-      />
-
+    <section ref={sectionRef} className="relative pt-20 lg:pt-32 pb-16 lg:pb-24 transition-colors duration-300 overflow-hidden hero-section">
       {/* Background Gradient Orbs */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] 
         bg-matrix-green/5 dark:bg-matrix-green/10 rounded-full blur-[120px] pointer-events-none" />

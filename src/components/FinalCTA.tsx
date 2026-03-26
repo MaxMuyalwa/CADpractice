@@ -3,7 +3,7 @@ import { Button } from './ui/Button';
 
 export const FinalCTA = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-background transition-colors duration-300">
+    <section className="py-24 relative overflow-hidden transition-colors duration-300">
       {/* Background Accent */}
       <div className="absolute inset-0 bg-matrix-green/5 blur-3xl rounded-full scale-150 opacity-30" />
       
