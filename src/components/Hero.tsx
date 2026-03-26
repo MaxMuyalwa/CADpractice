@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ArrowRight, PlayCircle, User, Star } from 'lucide-react';
+import { ArrowRight, PlayCircle } from 'lucide-react';
 import { MorphingCadWireframe } from './MorphingCadWireframe';
 import { Button } from './ui/Button';
 import { gsap } from 'gsap';
@@ -113,38 +113,6 @@ export const Hero = () => {
                 <PlayCircle className="w-6 h-6" />
                 Watch Demo
               </Button>
-            </div>
-            
-            {/* Social Proof */}
-            <div className="mt-16 flex flex-col sm:flex-row items-start gap-12 text-sm text-neu-text-secondary">
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-4">
-                  {[1, 2, 3, 4].map(i => (
-                    <div key={i} className="w-12 h-12 rounded-full bg-background 
-                      border-2 border-neu-shadow-dark/10
-                      flex items-center justify-center
-                      shadow-[4px_4px_8px_var(--shadow-dark),-2px_-2px_4px_var(--shadow-light)]">
-                      <User className="w-6 h-6 text-matrix-green" />
-                    </div>
-                  ))}
-                </div>
-                <div className="text-left">
-                  <span className="font-black text-neu-text-primary block text-lg">2,500+</span>
-                  <span className="text-xs">students learning</span>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-background 
-                  flex items-center justify-center
-                  shadow-[4px_4px_8px_var(--shadow-dark),-2px_-2px_4px_var(--shadow-light)]">
-                  <Star className="w-6 h-6 text-[#F59E0B] fill-[#F59E0B]" />
-                </div>
-                <div className="text-left">
-                  <span className="font-black text-neu-text-primary block text-lg">4.9/5</span>
-                  <span className="text-xs">rating</span>
-                </div>
-              </div>
             </div>
           </div>
 

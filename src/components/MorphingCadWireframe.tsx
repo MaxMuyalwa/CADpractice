@@ -6,15 +6,15 @@ export const MorphingCadWireframe = () => {
   const { theme } = useTheme();
   
   // Define theme-aware colors
-  const wireColor = theme === 'light' ? 'rgba(45, 55, 72, 0.6)' : 'rgba(204, 255, 0, 0.6)'; // Dark gray or lime
-  const wireFillLight = theme === 'light' ? 'rgba(45, 55, 72, 0.15)' : 'rgba(204, 255, 0, 0.15)';
-  const wireFillMedium = theme === 'light' ? 'rgba(45, 55, 72, 0.1)' : 'rgba(204, 255, 0, 0.1)';
-  const wireFillDark = theme === 'light' ? 'rgba(45, 55, 72, 0.08)' : 'rgba(204, 255, 0, 0.08)';
-  const wireFillVeryLight = theme === 'light' ? 'rgba(45, 55, 72, 0.05)' : 'rgba(204, 255, 0, 0.05)';
-  const wireStroke = theme === 'light' ? 'rgba(45, 55, 72, 0.4)' : 'rgba(204, 255, 0, 0.4)';
-  const wireStrokeMedium = theme === 'light' ? 'rgba(45, 55, 72, 0.5)' : 'rgba(204, 255, 0, 0.5)';
-  const wireStrokeStrong = theme === 'light' ? 'rgba(45, 55, 72, 0.6)' : 'rgba(204, 255, 0, 0.6)';
-  const textColor = theme === 'light' ? '#2D3748' : '#ccff00';
+  const wireColor = theme === 'light' ? 'rgba(45, 55, 72, 0.6)' : 'rgba(8, 203, 0, 0.6)'; // Dark gray or matrix green
+  const wireFillLight = theme === 'light' ? 'rgba(45, 55, 72, 0.15)' : 'rgba(8, 203, 0, 0.15)';
+  const wireFillMedium = theme === 'light' ? 'rgba(45, 55, 72, 0.1)' : 'rgba(8, 203, 0, 0.1)';
+  const wireFillDark = theme === 'light' ? 'rgba(45, 55, 72, 0.08)' : 'rgba(8, 203, 0, 0.08)';
+  const wireFillVeryLight = theme === 'light' ? 'rgba(45, 55, 72, 0.05)' : 'rgba(8, 203, 0, 0.05)';
+  const wireStroke = theme === 'light' ? 'rgba(45, 55, 72, 0.4)' : 'rgba(8, 203, 0, 0.4)';
+  const wireStrokeMedium = theme === 'light' ? 'rgba(45, 55, 72, 0.5)' : 'rgba(8, 203, 0, 0.5)';
+  const wireStrokeStrong = theme === 'light' ? 'rgba(45, 55, 72, 0.6)' : 'rgba(8, 203, 0, 0.6)';
+  const textColor = theme === 'light' ? '#2D3748' : '#08CB00';
   
   React.useEffect(() => {
     const interval = setInterval(() => {

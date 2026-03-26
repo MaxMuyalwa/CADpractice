@@ -47,35 +47,6 @@ export const EducatorPains = () => {
         duration: 0.8,
         ease: "back.out(1.7)"
       }, 0.3);
-      
-      // Special: Rotate the Gear in the Grading Panel
-      if (id === "#pain-3") {
-        tl.to(".gear-icon", { 
-          rotation: 360, 
-          color: "#08CB00", 
-          textShadow: "0 0 20px #08CB00" 
-        }, 0);
-      }
-    });
-
-    // --- NAV HANDLING ---
-    const links = gsap.utils.toArray<HTMLAnchorElement>(".fixed-nav a");
-    links.forEach((a) => {
-      const targetId = a.getAttribute("href");
-      if (!targetId) return;
-      
-      const element = document.querySelector(targetId);
-      if (!element) return;
-
-      const linkST = ScrollTrigger.create({
-        trigger: element,
-        start: "top top"
-      });
-          
-      a.addEventListener("click", function (e) {
-        e.preventDefault();
-        gsap.to(window, { duration: 1, scrollTo: linkST.start, overwrite: "auto" });
-      });
     });
 
     return () => {
@@ -84,15 +55,8 @@ export const EducatorPains = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="educator-pains-container relative bg-[#0b0b0b]">
+    <div ref={containerRef} className="educator-pains-container relative bg-background">
       <style>{`
-        :root {
-          --matrix-green: #08CB00;
-          --matrix-glow: rgba(8, 203, 0, 0.3);
-          --dark-bg: oklch(0.145 0 0);
-          --glass-border: rgba(255, 255, 255, 0.1);
-        }
-
         .educator-pains-container .panel {
           min-height: 100vh;
           width: 100%;
@@ -101,9 +65,9 @@ export const EducatorPains = () => {
           justify-content: center;
           position: relative;
           overflow: hidden;
-          background-color: var(--dark-bg);
-          color: oklch(0.985 0 0);
-          border-bottom: 1px solid var(--glass-border);
+          background-color: var(--background);
+          color: var(--foreground);
+          border-bottom: 1px solid var(--matrix-border);
         }
 
         .educator-pains-container .intro-content {
@@ -127,9 +91,9 @@ export const EducatorPains = () => {
           margin: auto;
           padding: 3rem;
           text-align: left;
-          background: rgba(255, 255, 255, 0.03);
+          background: var(--matrix-card-bg);
           backdrop-filter: blur(10px);
-          border: 1px solid var(--glass-border);
+          border: 1px solid var(--matrix-border);
           border-radius: var(--radius-lg);
           box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
@@ -137,7 +101,7 @@ export const EducatorPains = () => {
         .educator-pains-container .line-cont {
           width: 100%;
           height: 8px;
-          background-color: oklch(0.269 0 0);
+          background-color: var(--muted);
           margin-bottom: 20px;
           border-radius: 10px;
           overflow: hidden;
@@ -170,9 +134,9 @@ export const EducatorPains = () => {
         .educator-pains-container .pain-quote {
           font-style: italic;
           font-size: 1.2rem;
-          background: rgba(0,0,0,0.2);
+          background: var(--muted);
           padding: 15px;
-          border-left: 4px solid #fff;
+          border-left: 4px solid var(--matrix-green);
           margin: 20px 0;
         }
 
@@ -186,15 +150,9 @@ export const EducatorPains = () => {
           font-size: 1.1rem;
         }
 
-        .educator-pains-container .gear-icon {
-          font-size: 5rem;
-          margin-top: 2rem;
-          display: block;
-        }
-
         .educator-pains-container .victory-screen {
-          background: radial-gradient(circle, #1a2a6c, #b21f1f, #fdbb2d);
-          color: white;
+          background: var(--victory-bg);
+          color: var(--victory-text);
           text-align: center;
         }
 
@@ -227,35 +185,6 @@ export const EducatorPains = () => {
           box-shadow: 0 0 30px rgba(8, 203, 0, 0.6);
         }
 
-        .educator-pains-container .fixed-nav {
-          position: fixed;
-          right: 20px;
-          top: 50%;
-          transform: translateY(-50%);
-          z-index: 100;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          background: rgba(0,0,0,0.5);
-          padding: 15px;
-          border-radius: 30px;
-          backdrop-filter: blur(5px);
-        }
-
-        .educator-pains-container .fixed-nav a {
-          color: white;
-          text-decoration: none;
-          font-size: 0.8rem;
-          font-weight: bold;
-          text-transform: uppercase;
-          opacity: 0.6;
-          transition: opacity 0.3s;
-        }
-
-        .educator-pains-container .fixed-nav a:hover {
-          opacity: 1;
-        }
-
         .educator-pains-container .scroll-down {
           margin-top: 3rem;
           display: flex;
@@ -265,8 +194,8 @@ export const EducatorPains = () => {
         .educator-pains-container .arrow {
           width: 20px;
           height: 20px;
-          border-right: 3px solid white;
-          border-bottom: 3px solid white;
+          border-right: 3px solid var(--foreground);
+          border-bottom: 3px solid var(--foreground);
           transform: rotate(45deg);
           animation: bounce 2s infinite;
         }
@@ -281,7 +210,7 @@ export const EducatorPains = () => {
       <div id="intro" className="panel">
         <div className="intro-content">
           <h1 className="text-neu-green">The CAD Educator's Struggle</h1>
-          <p className="text-zinc-400 text-xl">From grading nightmares to certification gaps—teaching 3D modeling is harder than it should be. See how CADpractice changes the game.</p>
+          <p className="text-neu-text-secondary text-xl">From grading nightmares to certification gaps—teaching 3D modeling is harder than it should be. See how CADpractice changes the game.</p>
           <div className="scroll-down"><div className="arrow"></div></div>
         </div>
       </div>
@@ -319,7 +248,6 @@ export const EducatorPains = () => {
           <div className="solve-box">
             <strong>THE FIX:</strong> Auto-Grading & Instant Feedback. The system checks work in real-time, giving students a "win" and you a zero-effort gradebook.
           </div>
-          <div className="flair gear-icon" style={{ color: 'oklch(0.708 0 0)' }}>⚙️</div>
         </div>
       </section>
 
@@ -337,28 +265,17 @@ export const EducatorPains = () => {
               EXPERT AUTHORED
             </div>
           </div>
-          
-          <div className="flair gear-icon" style={{ color: 'oklch(0.708 0 0)' }}>⚙️</div>
         </div>
       </section>
 
       <section id="victory" className="panel victory-screen">
         <div className="victory-content">
           <div className="badge">MISSION ACCOMPLISHED</div>
-          <h1 className="text-white text-5xl font-black italic uppercase">Ready to automate your classroom?</h1>
-          <p className="text-zinc-200 text-xl">Join the CADpractice Alpha. Transform manual grading into growth.</p>
+          <h1 className="text-victory-text text-5xl font-black italic uppercase">Ready to create your classroom?</h1>
+          <p className="text-victory-subtext text-xl">Join the CADpractice Alpha. Transform manual grading into growth.</p>
           <a href="#" className="cta-button">GET EARLY ACCESS</a>
         </div>
       </section>
-
-      <nav className="fixed-nav">
-        <div><a href="#intro">Start</a></div>
-        <div><a href="#pain-1">Testing</a></div>
-        <div><a href="#pain-2">Engagement</a></div>
-        <div><a href="#pain-3">Grading</a></div>
-        <div><a href="#pain-4">Expertise</a></div>
-        <div><a href="#victory">Victory</a></div>
-      </nav>
     </div>
   );
 };

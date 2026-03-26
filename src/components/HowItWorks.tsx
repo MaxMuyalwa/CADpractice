@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useTheme } from '../contexts/ThemeContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,6 +34,7 @@ const steps = [
 
 export const HowItWorks = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const cards = gsap.utils.toArray(".how-it-works-stack .card");
@@ -67,12 +69,12 @@ export const HowItWorks = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="how-it-works-stack relative h-[200vh] bg-[#0b0b0b] overflow-hidden">
+    <section ref={sectionRef} className="how-it-works-stack relative h-[200vh] bg-background overflow-hidden">
       <div className="stack-container sticky top-0 h-screen flex justify-center items-center pt-[40vh]">
         {steps.map((step, i) => (
           <div 
             key={i} 
-            className={`card card-${i + 1} absolute w-[280px] h-[380px] rounded-[20px] p-8 text-black flex flex-col justify-end shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10`}
+            className={`card card-${i + 1} absolute w-[280px] h-[380px] rounded-[20px] p-8 ${theme === 'dark' ? 'text-black' : 'text-white'} flex flex-col justify-end shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10`}
             style={{ 
               backgroundColor: step.color, 
               zIndex: steps.length - i,

@@ -66,7 +66,7 @@ export const MasteryJourney = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="bg-[#0b0b0b] min-h-[200vh] px-8 sm:px-20 relative overflow-visible cad-scroll-wrapper"
+      className="bg-background min-h-[200vh] px-8 sm:px-20 relative overflow-visible cad-scroll-wrapper"
     >
       <div 
         ref={contentRef}
@@ -78,7 +78,7 @@ export const MasteryJourney = () => {
           ref={leftColRef}
           className="w-full md:w-1/2 h-screen flex items-center left-col"
         >
-          <h2 className="text-white font-bold text-[clamp(2.5rem,8vw,6rem)] leading-none m-0 sticky-text">
+          <h2 className="text-neu-text-primary font-bold text-[clamp(2.5rem,8vw,6rem)] leading-none m-0 sticky-text">
             <span aria-hidden="true">Master&nbsp;</span>
             <span className="sr-only">Master 3D CAD Skills.</span>
           </h2>
@@ -93,7 +93,7 @@ export const MasteryJourney = () => {
           {skills.map((skill, index) => (
             <li 
               key={index} 
-              className="text-[rgba(255,255,255,0.2)] mb-4 transition-[text-shadow] duration-300"
+              className="text-neu-text-secondary/20 mb-4 transition-[text-shadow] duration-300"
             >
               {skill}
             </li>

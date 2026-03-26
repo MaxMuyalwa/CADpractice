@@ -46,6 +46,13 @@
   --matrix-green: #08CB00;
   --matrix-glow: rgba(8, 203, 0, 0.3);
   --matrix-glow-intense: rgba(8, 203, 0, 0.6);
+  --matrix-card-bg: rgba(255, 255, 255, 0.7);
+  --matrix-border: rgba(0, 0, 0, 0.1);
+  
+  /* Victory Screen */
+  --victory-bg: radial-gradient(circle at center, #ffffff 0%, #f0f4f8 100%);
+  --victory-text: #000000;
+  --victory-subtext: #4A5568;
 
   /* Neumorphic variables - Light Mode */
   --shadow-light: #FFFFFF;
@@ -97,6 +104,14 @@
   --green-primary: #08CB00;
   --text-primary: #FFFFFF;
   --text-secondary: oklch(0.708 0 0);
+  
+  --matrix-card-bg: rgba(255, 255, 255, 0.03);
+  --matrix-border: rgba(255, 255, 255, 0.1);
+
+  /* Victory Screen */
+  --victory-bg: radial-gradient(circle at center, #1a2a6c, #b21f1f, #fdbb2d);
+  --victory-text: #ffffff;
+  --victory-subtext: rgba(255, 255, 255, 0.7);
 }
 
 @theme inline {
@@ -152,6 +167,11 @@
   --color-matrix-green: var(--matrix-green);
   --color-matrix-glow: var(--matrix-glow);
   --color-matrix-glow-intense: var(--matrix-glow-intense);
+  --color-matrix-card-bg: var(--matrix-card-bg);
+  --color-matrix-border: var(--matrix-border);
+  --color-victory-bg: var(--victory-bg);
+  --color-victory-text: var(--victory-text);
+  --color-victory-subtext: var(--victory-subtext);
 
   @keyframes fadeInUp {
     from {

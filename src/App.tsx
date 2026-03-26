@@ -2,7 +2,6 @@ import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Features } from './components/Features';
-import { Stats } from './components/Stats';
 import { HowItWorks } from './components/HowItWorks';
 import { EducatorPains } from './components/EducatorPains';
 import { MasteryJourney } from './components/MasteryJourney';
@@ -16,7 +15,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-background text-neu-text-primary font-sans relative overflow-x-hidden text-sm transition-colors duration-300">
       {/* Top Beta Banner */}
-      <div className="bg-yellow-400 text-black text-center py-2 px-4 text-xs font-medium relative z-50">
+      <div className="bg-yellow-400 text-black text-center py-1 px-4 text-xs font-medium relative z-50">
         Welcome to CADpractice.com BETA : We're live on April 1st!! Check out our <a href="#" className="underline font-bold hover:text-gray-800">BETA onboarding playlist</a> for help, and please pardon any unexpected behavior as we finalize the platform.
       </div>
 
@@ -24,7 +23,6 @@ const App = () => {
       <main role="main">
         <Hero />
         <Features />
-        <Stats />
         <HowItWorks />
         <EducatorPains />
         <MasteryJourney />
