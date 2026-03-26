@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { CheckCircle, Award } from 'lucide-react';
 import { Button } from './ui/Button';
 
 const cadPlatforms = [
@@ -11,6 +12,16 @@ const cadPlatforms = [
   'AutoCAD',
   'Revit',
   'Rhino',
+];
+
+const achievements = [
+  'Expert-Authored Library',
+  'Toby-Approved Workflows',
+  'Professional Grade',
+  'Designed by Educators, for Educators',
+  'STEM Excellence Award 2025',
+  'FERPA/COPPA Compliant',
+  'Join as a Founding Member',
 ];
 
 export const Footer = () => {
@@ -60,10 +71,42 @@ export const Footer = () => {
         </div>
 
         {/* CTA Area */}
-        <div className="mb-16">
+        <div className="mb-16 flex flex-col items-center">
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <div className="inline-flex items-center gap-[10px] bg-matrix-green/10 border border-matrix-green px-[15px] py-2 rounded-full text-[0.8rem] text-matrix-green uppercase font-bold">
+              <CheckCircle className="w-4 h-4" />
+              Expert-Vetted Authority
+            </div>
+            <div className="inline-flex items-center gap-[10px] bg-yellow-400/10 border border-yellow-400 px-[15px] py-2 rounded-full text-[0.8rem] text-yellow-500 uppercase font-bold">
+              <Award className="w-4 h-4" />
+              Founding Member Status
+            </div>
+          </div>
           <Button size="lg" className="px-12 py-8 text-xl">
-            Create Your Free Teacher Account
+            Create Your EDUCATOR Account
           </Button>
+        </div>
+
+        {/* Recent Achievements Ticker */}
+        <div className="mb-16 py-8 border-y border-neu-shadow-dark/5">
+          <div className="relative overflow-hidden">
+            <motion.div 
+              className="flex whitespace-nowrap gap-12 items-center w-max"
+              animate={{ x: ["-50%", "0%"] }}
+              transition={{ 
+                duration: 30, 
+                repeat: Infinity, 
+                ease: "linear" 
+              }}
+            >
+              {[...achievements, ...achievements].map((achievement, i) => (
+                <div key={i} className="flex items-center gap-3 text-neu-text-secondary">
+                  <Award className="w-4 h-4 text-matrix-green" />
+                  <span className="text-xs font-bold uppercase tracking-widest">{achievement}</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
         {/* Bottom Links */}
