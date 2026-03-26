@@ -1,112 +1,82 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle, Award } from 'lucide-react';
 import { Button } from './ui/Button';
 
-const cadPlatforms = [
-  'SOLIDWORKS',
-  'Fusion 360',
-  'Onshape',
-  'Inventor',
-  'Solid Edge',
-  'AutoCAD',
-  'Revit',
-  'Rhino',
-];
-
-const achievements = [
-  'Expert-Authored Library',
-  'Toby-Approved Workflows',
-  'Professional Grade',
-  'Designed by Educators, for Educators',
-  'STEM Excellence Award 2025',
-  'FERPA/COPPA Compliant',
-  'Join as a Founding Member',
+const pressTestimonials = [
+  {
+    quote: "The fastest 3D CAD modelers in the world.",
+    source: "Engineering.com",
+    date: "October 2024"
+  },
+  {
+    quote: "TooTallToby and The Gamification of 3D CAD",
+    source: "The Engineering Entrepreneur Podcast",
+    date: "July 2025"
+  },
+  {
+    quote: "CAD Best Practices, Speed Modeling, & Gamification",
+    source: "Pipeline Design & Engineering",
+    date: "April 2025"
+  },
+  {
+    quote: "Mastering 3D CAD and Building a Thriving Learning Community",
+    source: "The Infill Podcast",
+    date: "February 2025"
+  },
+  {
+    quote: "Treating Product Design Like a Sport",
+    source: "Masters of Engineering",
+    date: "April 2023"
+  },
+  {
+    quote: "Why Speed Modelling makes you a better Designer",
+    source: "Fully Defined",
+    date: "January 2025"
+  }
 ];
 
 export const Footer = () => {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % pressTestimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <footer className="relative z-10 bg-background text-neu-text-primary pt-20 pb-12 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 text-center">
         
-        {/* CAD Platforms Banner */}
-        <div className="mb-12">
-          <h3 className="text-xs font-black uppercase tracking-[0.2em] text-neu-text-secondary mb-8">
-            Compatible with all leading CAD platforms
-          </h3>
-          
-          <div className="relative overflow-hidden py-4">
-            <motion.div 
-              className="flex whitespace-nowrap gap-16 items-center w-max"
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ 
-                duration: 25, 
-                repeat: Infinity, 
-                ease: "linear" 
-              }}
+        {/* Testimonial Slideshow */}
+        <div className="mb-16 max-w-5xl mx-auto min-h-[240px] flex flex-col justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentTestimonial}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col items-center"
             >
-              {[...cadPlatforms, ...cadPlatforms].map((platform, i) => (
-                <div key={i} className="opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-default">
-                  <span className="text-2xl font-black italic tracking-tighter uppercase">{platform}</span>
-                </div>
-              ))}
+              <blockquote className="text-3xl md:text-5xl font-medium italic mb-8 leading-tight tracking-tight">
+                "{pressTestimonials[currentTestimonial].quote}"
+              </blockquote>
+              <cite className="text-neu-text-secondary not-italic font-bold uppercase tracking-[0.2em] text-base">
+                — {pressTestimonials[currentTestimonial].source}, {pressTestimonials[currentTestimonial].date}
+              </cite>
             </motion.div>
-            
-            {/* Gradient Overlays for smooth fade */}
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10"></div>
-            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10"></div>
-          </div>
-        </div>
-
-        <hr className="border-neu-shadow-dark/10 mb-16" />
-
-        {/* Testimonial */}
-        <div className="mb-16 max-w-3xl mx-auto">
-          <blockquote className="text-2xl md:text-3xl font-medium italic mb-4 leading-tight">
-            "CADpractice turned my students from passive users to critical thinkers."
-          </blockquote>
-          <cite className="text-neu-text-secondary not-italic font-bold uppercase tracking-widest text-sm">
-            — [TEACHER NAME], STEM Coordinator
-          </cite>
+          </AnimatePresence>
+          
         </div>
 
         {/* CTA Area */}
         <div className="mb-16 flex flex-col items-center">
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className="inline-flex items-center gap-[10px] bg-matrix-green/10 border border-matrix-green px-[15px] py-2 rounded-full text-[0.8rem] text-matrix-green uppercase font-bold">
-              <CheckCircle className="w-4 h-4" />
-              Expert-Vetted Authority
-            </div>
-            <div className="inline-flex items-center gap-[10px] bg-yellow-400/10 border border-yellow-400 px-[15px] py-2 rounded-full text-[0.8rem] text-yellow-500 uppercase font-bold">
-              <Award className="w-4 h-4" />
-              Founding Member Status
-            </div>
-          </div>
           <Button size="lg" className="px-12 py-8 text-xl">
             Create Your EDUCATOR Account
           </Button>
-        </div>
-
-        {/* Recent Achievements Ticker */}
-        <div className="mb-16 py-8 border-y border-neu-shadow-dark/5">
-          <div className="relative overflow-hidden">
-            <motion.div 
-              className="flex whitespace-nowrap gap-12 items-center w-max"
-              animate={{ x: ["-50%", "0%"] }}
-              transition={{ 
-                duration: 30, 
-                repeat: Infinity, 
-                ease: "linear" 
-              }}
-            >
-              {[...achievements, ...achievements].map((achievement, i) => (
-                <div key={i} className="flex items-center gap-3 text-neu-text-secondary">
-                  <Award className="w-4 h-4 text-matrix-green" />
-                  <span className="text-xs font-bold uppercase tracking-widest">{achievement}</span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
         </div>
 
         {/* Bottom Links */}

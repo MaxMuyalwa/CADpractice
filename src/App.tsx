@@ -5,7 +5,6 @@ import { Features } from './components/Features';
 import { HowItWorks } from './components/HowItWorks';
 import { EducatorPains } from './components/EducatorPains';
 import { MasteryJourney } from './components/MasteryJourney';
-import { Pricing } from './components/Pricing';
 import { Guarantee } from './components/Guarantee';
 import { FAQ } from './components/FAQ';
 import { FinalCTA } from './components/FinalCTA';
@@ -26,7 +25,6 @@ const App = () => {
         <HowItWorks />
         <EducatorPains />
         <MasteryJourney />
-        <Pricing />
         <Guarantee />
         <FAQ />
         <FinalCTA />
