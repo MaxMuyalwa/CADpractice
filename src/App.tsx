@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { SoftwareTicker } from './components/SoftwareTicker';
+import { InteractiveGrid } from './components/InteractiveGrid';
 import { Features } from './components/Features';
 import { HowItWorks } from './components/HowItWorks';
 import { EducatorPains } from './components/EducatorPains';
@@ -13,7 +14,8 @@ import { Footer } from './components/Footer';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-transparent text-neu-text-primary font-sans relative overflow-x-hidden text-sm transition-colors duration-300">
+    <div className="min-h-screen text-gray-900 dark:text-white font-sans relative overflow-x-hidden text-sm transition-colors duration-300">
+      <InteractiveGrid />
       {/* Top Beta Banner */}
       <div className="bg-yellow-400 text-black text-center py-1 px-4 text-xs font-medium relative z-50">
         Welcome to CADpractice.com BETA : We're live on April 1st!! Check out our <a href="https://www.youtube.com/playlist?list=PLDGrwExMGkBq_xcAb_mMie9pacnow_1ek" target="_blank" rel="noopener noreferrer" className="underline font-bold hover:text-gray-800">BETA onboarding playlist</a> for help, and please pardon any unexpected behavior as we finalize the platform.

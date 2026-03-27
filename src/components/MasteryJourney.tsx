@@ -51,9 +51,9 @@ export const MasteryJourney = () => {
           end: "bottom 45%", // When the bottom of the word passes 45%
           scrub: true,
         },
-        color: "var(--matrix-green)", // Matrix Green
+        color: "#08CB00", // Matrix Green
         opacity: 1,
-        textShadow: "0px 0px 20px var(--matrix-glow-intense)", // The neon glow
+        textShadow: "0px 0px 20px rgba(8, 203, 0, 0.6)", // The neon glow
         duration: 0.1
       });
     });
@@ -78,7 +78,7 @@ export const MasteryJourney = () => {
           ref={leftColRef}
           className="w-full md:w-1/2 h-screen flex items-center left-col"
         >
-          <h2 className="text-neu-text-primary font-bold text-[clamp(2.5rem,8vw,6rem)] leading-none m-0 sticky-text">
+          <h2 className="text-gray-900 dark:text-white font-bold text-[clamp(2.5rem,8vw,6rem)] leading-none m-0 sticky-text">
             <span aria-hidden="true">Master&nbsp;</span>
             <span className="sr-only">Master 3D CAD Skills.</span>
           </h2>
@@ -93,7 +93,7 @@ export const MasteryJourney = () => {
           {skills.map((skill, index) => (
             <li 
               key={index} 
-              className="text-neu-text-secondary/20 mb-4 transition-[text-shadow] duration-300"
+              className="text-gray-600/20 dark:text-gray-400/20 mb-4 transition-[text-shadow] duration-300"
             >
               {skill}
             </li>

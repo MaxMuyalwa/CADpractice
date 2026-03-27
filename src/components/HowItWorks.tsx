@@ -7,27 +7,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   { 
-    step: 'MISSION START', 
-    title: 'Stop Watching. Start Modeling.', 
-    description: 'Trade passive tutorials for active 3D challenges. Level up your skills by building real-world models.',
+    step: '01', 
+    title: 'Choose', 
+    description: 'Pick a certified challenge.',
     color: '#ff4d4d' 
   },
   { 
-    step: 'THE TOOLKIT', 
-    title: 'Your Tools. Our Challenges.', 
-    description: 'Whether you’re on Onshape, SolidWorks, or Fusion360—CADpractice is software-agnostic. Pick your "weapon" and start the clock.',
+    step: '02', 
+    title: 'Model', 
+    description: 'Design in your favorite CAD.',
     color: '#ffb31a' 
   },
   { 
-    step: 'THE ENGINE', 
-    title: 'Instant "Win" Validation.', 
-    description: 'No more waiting for feedback. Submit your mass, and our engine checks your accuracy instantly. If it\'s wrong, troubleshoot and fix it—be your own first line of defense.',
+    step: '03', 
+    title: 'Verify', 
+    description: 'Get instant mass-property feedback.',
     color: '#22c55e' 
   },
   { 
-    step: 'THE REWARD', 
-    title: 'Earn PTS. Rule the Board.', 
-    description: 'Rack up points for every successful model. Beat the average time to climb the Live Leaderboard and unlock exclusive achievements.',
+    step: '04', 
+    title: 'Level Up', 
+    description: 'Earn Points and climb the Leader Board.',
     color: '#3399ff' 
   }
 ];
@@ -64,7 +64,7 @@ export const HowItWorks = () => {
     });
 
     return () => {
-      tl.kill();
+      ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);
 
@@ -74,20 +74,20 @@ export const HowItWorks = () => {
         {steps.map((step, i) => (
           <div 
             key={i} 
-            className={`card card-${i + 1} absolute w-[280px] h-[380px] rounded-[20px] p-8 ${theme === 'dark' ? 'text-black' : 'text-white'} flex flex-col justify-end shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-md`}
+            className={`card card-${i + 1} absolute w-[280px] h-[380px] rounded-[20px] p-8 ${theme === 'dark' ? 'text-black' : 'text-white'} flex flex-col justify-end shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10`}
             style={{ 
-              backgroundColor: `${step.color}dd`, 
+              backgroundColor: step.color, 
               zIndex: steps.length - i,
               transformOrigin: 'center bottom'
             }}
           >
-            <span className="step-num absolute top-4 left-4 right-4 text-xl font-black opacity-40 leading-none pointer-events-none text-right">
+            <span className="step-num absolute top-4 right-4 text-[4rem] font-black opacity-30 leading-none pointer-events-none">
               {step.step}
             </span>
-            <h3 className="text-2xl font-extrabold uppercase m-0 leading-tight">
+            <h3 className="text-[2rem] font-extrabold uppercase m-0 leading-tight">
               {step.title}
             </h3>
-            <p className="text-sm font-semibold mt-2 leading-snug opacity-90">
+            <p className="text-lg font-semibold mt-2 leading-snug">
               {step.description}
             </p>
           </div>
@@ -96,7 +96,7 @@ export const HowItWorks = () => {
 
       {/* Section Header Overlay */}
       <div className="absolute top-12 left-0 w-full text-center pointer-events-none z-50">
-        <h2 className="text-neu-green text-6xl md:text-8xl font-black uppercase tracking-tighter">
+        <h2 className="text-[#08CB00] text-6xl md:text-8xl font-black uppercase tracking-tighter">
           How It Works
         </h2>
       </div>

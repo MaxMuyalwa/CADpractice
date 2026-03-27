@@ -143,10 +143,10 @@ export const SocialProofGallery = () => {
     <section ref={sectionRef} className="social-proof-gallery relative w-full h-screen overflow-hidden bg-[#111]">
       <div className="gallery absolute w-full h-full overflow-hidden">
         <div className="absolute top-12 left-0 w-full text-center z-20">
-          <h2 className="text-3xl md:text-5xl font-black italic tracking-tighter uppercase text-matrix-green mb-2">
+          <h2 className="text-3xl md:text-5xl font-black italic tracking-tighter uppercase text-[#08CB00] mb-2">
             Expert Authority
           </h2>
-          <p className="text-neu-text-secondary font-bold uppercase tracking-widest text-xs opacity-60">
+          <p className="text-gray-600 dark:text-gray-400 font-bold uppercase tracking-widest text-xs opacity-60">
             Join the ranks of elite CAD designers
           </p>
         </div>
@@ -162,10 +162,10 @@ export const SocialProofGallery = () => {
         </ul>
 
         <div className="actions absolute bottom-[40px] left-1/2 -translate-x-1/2 flex items-center justify-center gap-4 z-20">
-          <button className="prev px-6 py-2 border border-matrix-green/30 text-matrix-green/70 font-bold uppercase tracking-widest hover:bg-matrix-green hover:text-black hover:border-matrix-green transition-all rounded-full text-[10px]">
+          <button className="prev px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
             Prev
           </button>
-          <button className="next px-6 py-2 border border-matrix-green/30 text-matrix-green/70 font-bold uppercase tracking-widest hover:bg-matrix-green hover:text-black hover:border-matrix-green transition-all rounded-full text-[10px]">
+          <button className="next px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
             Next
           </button>
         </div>

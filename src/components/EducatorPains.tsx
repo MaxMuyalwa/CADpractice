@@ -11,7 +11,7 @@ export const EducatorPains = () => {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const sections = ["#intro", "#pain-1", "#pain-2", "#pain-3", "#pain-4"];
+    const sections = ["#pain-1", "#pain-2", "#pain-3", "#pain-4"];
 
     sections.forEach((id) => {
       const tl = gsap.timeline({
@@ -19,9 +19,8 @@ export const EducatorPains = () => {
           trigger: id,
           scrub: 1,
           pin: true,
-          pinSpacing: false,
           start: "top top",
-          end: "+=50%"
+          end: "+=100%"
         }
       });
 
@@ -57,232 +56,73 @@ export const EducatorPains = () => {
 
   return (
     <div ref={containerRef} className="educator-pains-container relative">
-      <style>{`
-        .educator-pains-container .panel {
-          height: 100vh;
-          margin: 0 !important;
-          padding: 0 !important;
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          position: relative;
-          overflow: hidden;
-          color: var(--foreground);
-          border-bottom: 1px solid var(--matrix-border);
-        }
-
-        #intro { z-index: 1; }
-        #pain-1 { z-index: 2; }
-        #pain-2 { z-index: 3; }
-        #pain-3 { z-index: 4; }
-        #pain-4 { z-index: 5; }
-        #victory { z-index: 6; }
-
-        .educator-pains-container .intro-content {
-          max-width: 800px;
-          margin: 0 auto;
-          text-align: center;
-          padding: 0 20px;
-        }
-
-        .educator-pains-container .intro-content h1 {
-          font-size: 4rem;
-          font-weight: 900;
-          text-transform: uppercase;
-          font-style: italic;
-          line-height: 0.9;
-          margin-bottom: 2rem;
-        }
-
-        .educator-pains-container .content-card {
-          max-width: 800px;
-          margin: auto;
-          padding: 3rem;
-          text-align: left;
-          background: var(--matrix-card-bg);
-          backdrop-filter: blur(10px);
-          border: 1px solid var(--matrix-border);
-          border-radius: var(--radius-lg);
-          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-
-        .educator-pains-container .line-cont {
-          width: 100%;
-          height: 8px;
-          background-color: var(--muted);
-          margin-bottom: 20px;
-          border-radius: 10px;
-          overflow: hidden;
-        }
-
-        .educator-pains-container .line {
-          display: block;
-          height: 100%;
-          background-color: var(--matrix-green);
-          box-shadow: 0 0 10px var(--matrix-green);
-          width: 100%;
-        }
-
-        .educator-pains-container .label {
-          color: var(--matrix-green);
-          font-family: 'Courier New', monospace;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          font-weight: bold;
-          margin-top: 20px;
-        }
-
-        .educator-pains-container h2 {
-          font-size: 3rem;
-          font-weight: 800;
-          margin: 1rem 0;
-          line-height: 1.1;
-        }
-
-        .educator-pains-container .pain-quote {
-          font-style: italic;
-          font-size: 1.2rem;
-          background: var(--muted);
-          padding: 15px;
-          border-left: 4px solid var(--matrix-green);
-          margin: 20px 0;
-        }
-
-        .educator-pains-container .solve-box {
-          background: rgba(8, 203, 0, 0.05);
-          border: 1px solid var(--matrix-green);
-          box-shadow: 0 0 15px var(--matrix-glow);
-          padding: 25px;
-          border-radius: var(--radius-md);
-          margin-top: 2rem;
-          font-size: 1.1rem;
-        }
-
-        .educator-pains-container .victory-screen {
-          background: var(--victory-bg);
-          color: var(--victory-text);
-          text-align: center;
-        }
-
-        .educator-pains-container .badge {
-          background: var(--matrix-green);
-          color: #000;
-          padding: 10px 20px;
-          font-weight: 900;
-          display: inline-block;
-          margin-bottom: 20px;
-          clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
-        }
-
-        .educator-pains-container .cta-button {
-          display: inline-block;
-          margin-top: 30px;
-          padding: 20px 40px;
-          background-color: var(--matrix-green);
-          color: #000;
-          text-decoration: none;
-          font-weight: 900;
-          border-radius: 50px;
-          transition: all 0.3s ease;
-          box-shadow: 0 0 20px var(--matrix-glow);
-        }
-
-        .educator-pains-container .cta-button:hover {
-          background-color: #0aed00;
-          transform: scale(1.05);
-          box-shadow: 0 0 30px rgba(8, 203, 0, 0.6);
-        }
-
-        .educator-pains-container .scroll-down {
-          margin-top: 3rem;
-          display: flex;
-          justify-content: center;
-        }
-
-        .educator-pains-container .arrow {
-          width: 20px;
-          height: 20px;
-          border-right: 3px solid var(--foreground);
-          border-bottom: 3px solid var(--foreground);
-          transform: rotate(45deg);
-          animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-          0%, 20%, 50%, 80%, 100% {transform: translateY(0) rotate(45deg);}
-          40% {transform: translateY(-10px) rotate(45deg);}
-          60% {transform: translateY(-5px) rotate(45deg);}
-        }
-      `}</style>
-
-      <div id="intro" className="panel">
-        <div className="intro-content">
-          <h1 className="text-neu-green">The CAD Educator's Struggle</h1>
-          <p className="text-neu-text-secondary text-xl">From grading nightmares to certification gaps—teaching 3D modeling is harder than it should be. See how CADpractice changes the game.</p>
-          <div className="scroll-down"><div className="arrow"></div></div>
+      <div id="intro" className="min-h-screen w-full flex flex-col justify-center relative overflow-hidden text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800">
+        <div className="max-w-[800px] mx-auto text-center px-5">
+          <h1 className="text-[#08CB00] text-6xl font-black uppercase italic leading-none mb-8">The CAD Educator's Struggle</h1>
+          <p className="text-gray-600 dark:text-gray-400 text-xl">From grading nightmares to certification gaps—teaching 3D modeling is harder than it should be. See how CADpractice changes the game.</p>
+          <div className="mt-12 flex justify-center"><div className="w-5 h-5 border-r-[3px] border-b-[3px] border-gray-900 dark:border-white rotate-45 animate-bounce"></div></div>
         </div>
       </div>
 
-      <section id="pain-1" className="panel">
-        <div className="content-card">
-          <div className="line-cont"><span className="line"></span></div>
-          <div className="label">LEVEL 01: THE CERTIFICATION GAP</div>
-          <h2>"They pass the tutorial, but fail the state exam."</h2>
-          <p className="pain-quote">"Can we build an exact replica to the state tests coming up?"</p>
-          <div className="solve-box">
+      <section id="pain-1" className="min-h-screen w-full flex flex-col justify-center relative overflow-hidden text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800">
+        <div className="max-w-[800px] mx-auto p-12 text-left bg-white/70 dark:bg-black/30 backdrop-blur-md border border-gray-200 dark:border-gray-800 rounded-2xl shadow-2xl">
+          <div className="w-full h-2 bg-gray-200 dark:bg-gray-800 mb-5 rounded-full overflow-hidden"><span className="line block h-full bg-[#08CB00] shadow-[0_0_10px_#08CB00] w-full"></span></div>
+          <div className="text-[#08CB00] font-mono tracking-widest uppercase font-bold mt-5">LEVEL 01: THE CERTIFICATION GAP</div>
+          <h2 className="text-5xl font-extrabold my-4 leading-tight">"They pass the tutorial, but fail the state exam."</h2>
+          <p className="italic text-xl bg-gray-100 dark:bg-gray-900 p-4 border-l-4 border-[#08CB00] my-5">"Can we build an exact replica to the state tests coming up?"</p>
+          <div className="solve-box bg-[#08CB00]/5 border border-[#08CB00] shadow-[0_0_15px_rgba(8,203,0,0.3)] p-6 rounded-xl mt-8 text-lg">
             <strong>THE FIX:</strong> Mock Exam Engine. Realistic, timed simulations that mirror CSWA/Onshape environments to kill test-day anxiety.
           </div>
         </div>
       </section>
 
-      <section id="pain-2" className="panel">
-        <div className="content-card">
-          <div className="line-cont"><span className="line"></span></div>
-          <div className="label">LEVEL 02: TUTORIAL HELL</div>
-          <h2>Passive Watching ≠ Active Learning</h2>
-          <p className="pain-quote">"My students are bored... they just watch videos without actually 'doing' the CAD."</p>
-          <div className="solve-box">
+      <section id="pain-2" className="min-h-screen w-full flex flex-col justify-center relative overflow-hidden text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800">
+        <div className="max-w-[800px] mx-auto p-12 text-left bg-white/70 dark:bg-black/30 backdrop-blur-md border border-gray-200 dark:border-gray-800 rounded-2xl shadow-2xl">
+          <div className="w-full h-2 bg-gray-200 dark:bg-gray-800 mb-5 rounded-full overflow-hidden"><span className="line block h-full bg-[#08CB00] shadow-[0_0_10px_#08CB00] w-full"></span></div>
+          <div className="text-[#08CB00] font-mono tracking-widest uppercase font-bold mt-5">LEVEL 02: TUTORIAL HELL</div>
+          <h2 className="text-5xl font-extrabold my-4 leading-tight">Passive Watching ≠ Active Learning</h2>
+          <p className="italic text-xl bg-gray-100 dark:bg-gray-900 p-4 border-l-4 border-[#08CB00] my-5">"My students are bored... they just watch videos without actually 'doing' the CAD."</p>
+          <div className="solve-box bg-[#08CB00]/5 border border-[#08CB00] shadow-[0_0_15px_rgba(8,203,0,0.3)] p-6 rounded-xl mt-8 text-lg">
             <strong>THE FIX:</strong> Deliberate Practice. Interactive tasks require 100% geometric accuracy before moving forward. No more "zombie scrolling."
           </div>
         </div>
       </section>
 
-      <section id="pain-3" className="panel">
-        <div className="content-card">
-          <div className="line-cont"><span className="line"></span></div>
-          <div className="label">LEVEL 03: THE GRADING TRAP</div>
-          <h2>"I spend hours checking one dimension."</h2>
-          <p className="pain-quote">"Opening 30 individual CAD files to check a hole diameter is killing my prep time."</p>
-          <div className="solve-box">
+      <section id="pain-3" className="min-h-screen w-full flex flex-col justify-center relative overflow-hidden text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800">
+        <div className="max-w-[800px] mx-auto p-12 text-left bg-white/70 dark:bg-black/30 backdrop-blur-md border border-gray-200 dark:border-gray-800 rounded-2xl shadow-2xl">
+          <div className="w-full h-2 bg-gray-200 dark:bg-gray-800 mb-5 rounded-full overflow-hidden"><span className="line block h-full bg-[#08CB00] shadow-[0_0_10px_#08CB00] w-full"></span></div>
+          <div className="text-[#08CB00] font-mono tracking-widest uppercase font-bold mt-5">LEVEL 03: THE GRADING TRAP</div>
+          <h2 className="text-5xl font-extrabold my-4 leading-tight">"I spend hours checking one dimension."</h2>
+          <p className="italic text-xl bg-gray-100 dark:bg-gray-900 p-4 border-l-4 border-[#08CB00] my-5">"Opening 30 individual CAD files to check a hole diameter is killing my prep time."</p>
+          <div className="solve-box bg-[#08CB00]/5 border border-[#08CB00] shadow-[0_0_15px_rgba(8,203,0,0.3)] p-6 rounded-xl mt-8 text-lg">
             <strong>THE FIX:</strong> Auto-Grading & Instant Feedback. The system checks work in real-time, giving students a "win" and you a zero-effort gradebook.
           </div>
         </div>
       </section>
 
-      <section id="pain-4" className="panel">
-        <div className="content-card">
-          <div className="line-cont"><span className="line"></span></div>
-          <div className="label">Expertise Gap</div>
-          <h2>"I'm not always available to help every student troubleshoot."</h2>
+      <section id="pain-4" className="min-h-screen w-full flex flex-col justify-center relative overflow-hidden text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800">
+        <div className="max-w-[800px] mx-auto p-12 text-left bg-white/70 dark:bg-black/30 backdrop-blur-md border border-gray-200 dark:border-gray-800 rounded-2xl shadow-2xl">
+          <div className="w-full h-2 bg-gray-200 dark:bg-gray-800 mb-5 rounded-full overflow-hidden"><span className="line block h-full bg-[#08CB00] shadow-[0_0_10px_#08CB00] w-full"></span></div>
+          <div className="text-[#08CB00] font-mono tracking-widest uppercase font-bold mt-5">Expertise Gap</div>
+          <h2 className="text-5xl font-extrabold my-4 leading-tight">"I'm not always available to help every student troubleshoot."</h2>
           
-          <div className="solve-box">
+          <div className="solve-box bg-[#08CB00]/5 border border-[#08CB00] shadow-[0_0_15px_rgba(8,203,0,0.3)] p-6 rounded-xl mt-8 text-lg">
             <strong>CADpractice SOLVE:</strong> 
             Our library includes tutorials by CAD Expert <strong>TooTallToby</strong>. 
             Everything is ready on day one, starting from the absolute beginner level (Origin & Modeling basics).
-            <div className="cad-badge-metal" style={{ marginTop: '10px', padding: '5px', fontSize: '0.8rem', textAlign: 'center' }}>
+            <div className="cad-badge-metal mt-2.5 p-1.5 text-sm text-center">
               EXPERT AUTHORED
             </div>
           </div>
         </div>
       </section>
 
-      <section id="victory" className="panel victory-screen">
-        <div className="victory-content">
-          <div className="badge">MISSION ACCOMPLISHED</div>
-          <h1 className="text-victory-text text-5xl font-black italic uppercase">Ready to create your classroom?</h1>
-          <p className="text-victory-subtext text-xl">Join the CADpractice Alpha. Transform manual grading into growth.</p>
-          <a href="#" className="cta-button">GET EARLY ACCESS</a>
+      <section id="victory" className="min-h-screen w-full flex flex-col justify-center relative overflow-hidden text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 bg-gradient-to-r from-gray-100 to-white dark:from-gray-900 dark:to-black text-center">
+        <div>
+          <div className="bg-[#08CB00] text-black px-5 py-2.5 font-black inline-block mb-5 [clip-path:polygon(10%_0%,90%_0%,100%_50%,90%_100%,10%_100%,0%_50%)]">MISSION ACCOMPLISHED</div>
+          <h1 className="text-gray-900 dark:text-white text-5xl font-black italic uppercase">Ready to create your classroom?</h1>
+          <p className="text-gray-600 dark:text-gray-400 text-xl mt-4">Join the CADpractice Alpha. Transform manual grading into growth.</p>
+          <a href="#" className="inline-block mt-8 px-10 py-5 bg-[#08CB00] text-black no-underline font-black rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(8,203,0,0.3)] hover:bg-[#0aed00] hover:scale-105 hover:shadow-[0_0_30px_rgba(8,203,0,0.6)]">GET EARLY ACCESS</a>
         </div>
       </section>
     </div>

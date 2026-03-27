@@ -40,10 +40,10 @@ export const Features = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl font-black text-neu-text-primary mb-4">
-            Why CAD<span className="text-matrix-green">practice</span>?
+          <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
+            Why CAD<span className="text-[#08CB00]">practice</span>?
           </h2>
-          <p className="text-lg text-neu-text-secondary max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Everything you need to master CAD fundamentals and excel in your studies
           </p>
         </div>
@@ -51,29 +51,28 @@ export const Features = () => {
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {features.map((feature, index) => (
-            <div key={index} className="bg-background/80 backdrop-blur-md border border-neu-shadow-dark/10 rounded-[32px] p-8
-              shadow-[10px_10px_20px_var(--shadow-dark),-5px_-5px_10px_var(--shadow-light)]
-              hover:shadow-[12px_12px_24px_var(--shadow-dark-intense),-6px_-6px_12px_var(--shadow-light)]
+            <div key={index} className="bg-[#E5E5E5] dark:bg-[#000805] border border-gray-200 dark:border-gray-800 rounded-[32px] p-8
+              shadow-lg hover:shadow-xl
               hover:-translate-y-1
               transition-all duration-300
               group">
               
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-background/50 backdrop-blur-md 
+              <div className="w-16 h-16 rounded-2xl bg-[#E5E5E5] dark:bg-[#000805] 
                 flex items-center justify-center mb-6
                 group-hover:scale-110
                 transition-all duration-300
-                shadow-[inset_4px_4px_8px_var(--shadow-dark),inset_-2px_-2px_4px_var(--shadow-light)]">
-                <feature.icon className="w-8 h-8 text-matrix-green" />
+                shadow-inner">
+                <feature.icon className="w-8 h-8 text-[#08CB00]" />
               </div>
               
               {/* Title */}
-              <h3 className="text-xl font-black text-neu-text-primary mb-3">
+              <h3 className="text-xl font-black text-gray-900 dark:text-white mb-3">
                 {feature.title}
               </h3>
               
               {/* Description */}
-              <p className="text-neu-text-secondary leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 {feature.description}
               </p>
             </div>
