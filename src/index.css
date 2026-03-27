@@ -64,11 +64,11 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #000805;
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
+  --card: #000805;
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
+  --popover: #000805;
   --popover-foreground: oklch(0.985 0 0);
   --primary: #08CB00;
   --primary-foreground: #000000;

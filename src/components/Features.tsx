@@ -51,7 +51,7 @@ export const Features = () => {
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {features.map((feature, index) => (
-            <div key={index} className="bg-background border border-neu-shadow-dark/10 rounded-[32px] p-8
+            <div key={index} className="bg-background/80 backdrop-blur-md border border-neu-shadow-dark/10 rounded-[32px] p-8
               shadow-[10px_10px_20px_var(--shadow-dark),-5px_-5px_10px_var(--shadow-light)]
               hover:shadow-[12px_12px_24px_var(--shadow-dark-intense),-6px_-6px_12px_var(--shadow-light)]
               hover:-translate-y-1
@@ -59,7 +59,7 @@ export const Features = () => {
               group">
               
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-background 
+              <div className="w-16 h-16 rounded-2xl bg-background/50 backdrop-blur-md 
                 flex items-center justify-center mb-6
                 group-hover:scale-110
                 transition-all duration-300

@@ -33,13 +33,6 @@ export const InteractiveGrid = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden bg-background">
-      <motion.div 
-        className="absolute inset-[-100px] matrix-grid opacity-20"
-        style={{
-          x: smoothX,
-          y: smoothY,
-        }}
-      />
       {/* Subtle radial glow that follows mouse */}
       <motion.div
         className="absolute w-[1000px] h-[1000px] rounded-full pointer-events-none opacity-40"

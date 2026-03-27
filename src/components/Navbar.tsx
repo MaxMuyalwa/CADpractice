@@ -18,7 +18,7 @@ export const Navbar = () => {
       <div className="flex items-center gap-4">
         <Button 
           variant="ghost" 
-          className={`px-6 py-2 rounded-xl font-bold transition-all duration-300 bg-background text-neu-text-primary ${
+          className={`px-6 py-2 rounded-xl font-bold transition-all duration-300 bg-background/80 backdrop-blur-md text-neu-text-primary ${
             theme === 'dark' 
             ? 'shadow-[inset_4px_4px_8px_var(--shadow-dark),inset_-4px_-4px_8px_var(--shadow-light)]' 
             : 'shadow-[6px_6px_12px_var(--shadow-dark),-3px_-3px_6px_var(--shadow-light)]'
@@ -35,7 +35,7 @@ export const Navbar = () => {
         <Button 
           variant="ghost" 
           onClick={toggleTheme}
-          className={`p-2 rounded-xl transition-all duration-300 bg-background ${
+          className={`p-2 rounded-xl transition-all duration-300 bg-background/80 backdrop-blur-md ${
             theme === 'dark' 
             ? 'shadow-[inset_4px_4px_8px_var(--shadow-dark),inset_-4px_-4px_8px_var(--shadow-light)]' 
             : 'shadow-[6px_6px_12px_var(--shadow-dark),-3px_-3px_6px_var(--shadow-light)]'

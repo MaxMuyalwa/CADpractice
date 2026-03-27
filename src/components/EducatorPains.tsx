@@ -11,7 +11,7 @@ export const EducatorPains = () => {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const sections = ["#pain-1", "#pain-2", "#pain-3", "#pain-4"];
+    const sections = ["#intro", "#pain-1", "#pain-2", "#pain-3", "#pain-4"];
 
     sections.forEach((id) => {
       const tl = gsap.timeline({
@@ -19,8 +19,9 @@ export const EducatorPains = () => {
           trigger: id,
           scrub: 1,
           pin: true,
+          pinSpacing: false,
           start: "top top",
-          end: "+=100%"
+          end: "+=50%"
         }
       });
 
@@ -58,7 +59,9 @@ export const EducatorPains = () => {
     <div ref={containerRef} className="educator-pains-container relative">
       <style>{`
         .educator-pains-container .panel {
-          min-height: 100vh;
+          height: 100vh;
+          margin: 0 !important;
+          padding: 0 !important;
           width: 100%;
           display: flex;
           flex-direction: column;
@@ -68,6 +71,13 @@ export const EducatorPains = () => {
           color: var(--foreground);
           border-bottom: 1px solid var(--matrix-border);
         }
+
+        #intro { z-index: 1; }
+        #pain-1 { z-index: 2; }
+        #pain-2 { z-index: 3; }
+        #pain-3 { z-index: 4; }
+        #pain-4 { z-index: 5; }
+        #victory { z-index: 6; }
 
         .educator-pains-container .intro-content {
           max-width: 800px;

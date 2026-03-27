@@ -9,34 +9,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-  const scannerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!sectionRef.current || !gridRef.current || !scannerRef.current) return;
-
-    // Scan line animation
-    gsap.to(scannerRef.current, {
-      y: "600px",
-      opacity: 0,
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-
-    // Grid parallax shift
-    gsap.to(gridRef.current, {
-      backgroundPosition: "0px 50px",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.5
-      }
-    });
+    if (!sectionRef.current) return;
 
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
