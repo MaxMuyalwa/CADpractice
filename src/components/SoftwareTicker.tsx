@@ -24,7 +24,7 @@ export const SoftwareTicker = () => {
           {[...softwares, ...softwares, ...softwares, ...softwares].map((software, i) => (
             <span 
               key={i} 
-              className="text-2xl md:text-4xl font-black italic text-gray-900/50 dark:text-white/50 uppercase tracking-tight hover:text-[#08CB00] transition-colors duration-300 cursor-default flex-shrink-0"
+              className="text-2xl md:text-4xl font-black italic text-gray-900 dark:text-white opacity-50 hover:opacity-100 hover:text-[#08CB00] hover:drop-shadow-[0_0_12px_rgba(8,203,0,0.8)] transition-all duration-300 cursor-default flex-shrink-0"
             >
               {software}
             </span>
