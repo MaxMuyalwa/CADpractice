@@ -74,26 +74,41 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Bottom Image Stack */}
-        <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up delay-400 mt-32 md:mt-40 mb-24" style={{ perspective: '1200px' }}>
-          <div 
-            className="relative w-full aspect-[16/10] sm:aspect-[16/9] transition-transform duration-700 ease-out group"
-            style={{ transform: 'rotateX(12deg) rotateY(-6deg) rotateZ(2deg)' }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) rotateZ(0deg)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'rotateX(12deg) rotateY(-6deg) rotateZ(2deg)'}
-          >
+        {/* Bottom Image Carousel */}
+        <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up delay-400 mt-20 md:mt-32 mb-24">
+          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9]">
             {slideImages.map((src, index) => {
-              // Calculate offset relative to current index (0 is front, 1 is middle, 2 is back)
               const offset = (index - currentImageIndex + slideImages.length) % slideImages.length;
               
+              let transform = '';
+              let zIndex = 10;
+              let opacity = 1;
+
+              if (offset === 0) {
+                // Center (Front)
+                transform = 'translateX(0%) scale(1)';
+                zIndex = 30;
+                opacity = 1;
+              } else if (offset === 1) {
+                // Right (Back)
+                transform = 'translateX(20%) scale(0.85)';
+                zIndex = 20;
+                opacity = 0.6;
+              } else if (offset === 2) {
+                // Left (Back)
+                transform = 'translateX(-20%) scale(0.85)';
+                zIndex = 20;
+                opacity = 0.6;
+              }
+
               return (
                 <div 
                   key={index}
-                  className="absolute inset-0 shadow-2xl rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 transition-all duration-700 ease-in-out"
+                  className="absolute inset-0 shadow-2xl rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 transition-all duration-1000 ease-in-out"
                   style={{
-                    zIndex: 30 - offset * 10,
-                    opacity: 1 - offset * 0.2,
-                    transform: `translateY(${offset * 24}px) scale(${1 - offset * 0.04})`,
+                    zIndex,
+                    opacity,
+                    transform,
                   }}
                 >
                   <img 
@@ -102,7 +117,6 @@ export const Hero = () => {
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#08CB00]/10 to-transparent mix-blend-overlay pointer-events-none group-hover:opacity-0 transition-opacity duration-700"></div>
                 </div>
               );
             })}
