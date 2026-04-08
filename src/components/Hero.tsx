@@ -74,9 +74,16 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Bottom Image Carousel */}
-        <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up delay-400 mt-20 md:mt-32 mb-24">
-          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9]">
+        {/* Bottom Image Carousel - Slight 3D Tilt */}
+        <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up delay-400 mt-20 md:mt-32 mb-24" style={{ perspective: '1200px' }}>
+          <div 
+            className="relative w-full aspect-[16/10] sm:aspect-[16/9] mx-auto"
+            style={{ 
+              transformStyle: 'preserve-3d', 
+              transform: 'rotateX(12deg) rotateY(-4deg) rotateZ(2deg)',
+              transition: 'transform 1s ease-out'
+            }}
+          >
             {slideImages.map((src, index) => {
               const offset = (index - currentImageIndex + slideImages.length) % slideImages.length;
               
@@ -86,25 +93,25 @@ export const Hero = () => {
 
               if (offset === 0) {
                 // Center (Front)
-                transform = 'translateX(0%) scale(1)';
+                transform = 'translateX(0%) translateZ(50px) scale(1)';
                 zIndex = 30;
                 opacity = 1;
               } else if (offset === 1) {
                 // Right (Back)
-                transform = 'translateX(20%) scale(0.85)';
+                transform = 'translateX(25%) translateZ(0px) scale(0.85)';
                 zIndex = 20;
-                opacity = 0.6;
+                opacity = 0.8;
               } else if (offset === 2) {
                 // Left (Back)
-                transform = 'translateX(-20%) scale(0.85)';
+                transform = 'translateX(-25%) translateZ(0px) scale(0.85)';
                 zIndex = 20;
-                opacity = 0.6;
+                opacity = 0.8;
               }
 
               return (
                 <div 
                   key={index}
-                  className="absolute inset-0 shadow-2xl rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 transition-all duration-1000 ease-in-out"
+                  className="absolute inset-0 shadow-[0_20px_50px_rgba(0,0,0,0.3)] rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 transition-all duration-1000 ease-in-out"
                   style={{
                     zIndex,
                     opacity,
@@ -117,6 +124,8 @@ export const Hero = () => {
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
                   />
+                  {/* Subtle overlay to give depth to back cards */}
+                  <div className={`absolute inset-0 bg-black transition-opacity duration-1000 ${offset === 0 ? 'opacity-0' : 'opacity-20'}`} />
                 </div>
               );
             })}

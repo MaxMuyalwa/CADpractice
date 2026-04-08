@@ -80,7 +80,7 @@ export const EducatorPains = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="pt-8 pb-32 px-4 sm:px-8 relative overflow-visible">
+    <section ref={containerRef} className="pt-8 pb-8 px-4 sm:px-8 relative overflow-visible">
       {/* 2-Column Layout */}
       <div ref={contentRef} className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start relative">
         
@@ -98,7 +98,7 @@ export const EducatorPains = () => {
         </div>
 
         {/* Right Column - Scrolling Cards */}
-        <div className="w-full lg:w-7/12 flex flex-col gap-[15vh] pt-[10vh] pb-[20vh]">
+        <div className="w-full lg:w-7/12 flex flex-col gap-[15vh] pt-[10vh] pb-[5vh]">
           {pains.map((pain, index) => (
             <div 
               key={index}
