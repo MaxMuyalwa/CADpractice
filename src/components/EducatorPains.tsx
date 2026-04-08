@@ -80,7 +80,7 @@ export const EducatorPains = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-32 px-4 sm:px-8 relative overflow-visible">
+    <section ref={containerRef} className="pt-8 pb-32 px-4 sm:px-8 relative overflow-visible">
       {/* 2-Column Layout */}
       <div ref={contentRef} className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start relative">
         

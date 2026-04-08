@@ -69,7 +69,7 @@ export const HowItWorks = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="how-it-works-stack relative h-[200vh] overflow-hidden">
+    <section ref={sectionRef} className="how-it-works-stack relative h-[150vh] overflow-hidden">
       <div className="stack-container sticky top-0 h-screen flex justify-center items-center pt-[40vh]">
         {steps.map((step, i) => (
           <div 
