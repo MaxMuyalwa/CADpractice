@@ -1,36 +1,76 @@
 import React from 'react';
-import { Box, Layers, TrendingUp, Zap, Trophy, BarChart } from 'lucide-react';
+import { FileCheck, CheckCircle, TrendingUp, Lightbulb, Database, LayoutDashboard } from 'lucide-react';
 
 const features = [
   {
-    icon: Box,
-    title: 'Hands-On Practice',
-    description: 'Real-world CAD challenges with instant feedback'
+    icon: FileCheck,
+    title: 'Certified Blueprints',
+    description: (
+      <>
+        Stop wasting hours searching for or creating 2D drawings.
+        <br /><br />
+        Our library contains professionally vetted engineering blueprints ready for immediate deployment to your students.
+        <br /><br />
+        <strong className="text-gray-900 dark:text-white font-bold">NO MORE MISSING DIMENSIONS!</strong>
+      </>
+    )
   },
   {
-    icon: Layers,
-    title: 'Multi-Platform Support',
-    description: 'Works with Fusion, Onshape, SolidWorks, FreeCAD, Inventor'
+    icon: CheckCircle,
+    title: 'Instant Feedback',
+    description: (
+      <>
+        Upon submission, students instantly know if they've succeeded. If incorrect, they get to keep trying.
+        <br /><br />
+        <strong className="text-gray-900 dark:text-white font-bold">Educators spend less time correcting minor mistakes and more time answering in-depth modeling questions.</strong>
+      </>
+    )
   },
   {
     icon: TrendingUp,
-    title: 'Progressive Learning',
-    description: 'Start easy, master advanced concepts'
+    title: 'Tiered Challenges',
+    description: (
+      <>
+        Students who are brand new to 3D CAD can start on Level 1 and work their way up.
+        <br /><br />
+        Students who have more CAD experience can jump to level 4 or 5 (or higher) for more complicated CAD challenges.
+      </>
+    )
   },
   {
-    icon: Zap,
-    title: 'Instant Feedback',
-    description: 'Know immediately if your solution is correct'
+    icon: Lightbulb,
+    title: 'Built-in Tutorials',
+    description: (
+      <>
+        Give every student "on demand", 1 on 1 support.
+        <br /><br />
+        Our built in tutorials provide step-by-step guides on how to complete the current CAD challenges, acting as a "digital teaching assistant" to help students the moment they get stuck.
+      </>
+    )
   },
   {
-    icon: Trophy,
-    title: 'Competitive Leaderboards',
-    description: 'Compete with students worldwide'
+    icon: Database,
+    title: 'CAD Agnostic',
+    description: (
+      <>
+        Your Lab - Your Choice.
+        <br /><br />
+        CADpractice.com works with any 3D CAD System - Onshape, Fusion, SOLIDWORKS, FreeCAD, Tinkercad, Inventor, Creo, and more.
+      </>
+    )
   },
   {
-    icon: BarChart,
-    title: 'Track Progress',
-    description: 'Monitor your improvement over time'
+    icon: LayoutDashboard,
+    title: 'Educators Live Dashboard',
+    description: (
+      <>
+        Total visibility from your desk.
+        <br /><br />
+        Create assignments and monitor results.
+        <br /><br />
+        See which students are stuck, which students are ahead, and which CAD competency skills they have mastered.
+      </>
+    )
   }
 ];
 
@@ -41,10 +81,10 @@ export const Features = () => {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
-            Why CAD<span className="text-[#08CB00]">practice</span>?
+            The End of CAD <span className="text-[#08CB00]">Grading</span> Bottlenecks
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Everything you need to master CAD fundamentals and excel in your studies
+            Tools to help CAD educators reclaim their time!
           </p>
         </div>
         
@@ -72,9 +112,9 @@ export const Features = () => {
               </h3>
               
               {/* Description */}
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <div className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
                 {feature.description}
-              </p>
+              </div>
             </div>
           ))}
         </div>

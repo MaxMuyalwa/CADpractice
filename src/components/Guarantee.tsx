@@ -13,9 +13,9 @@ export const Guarantee = () => {
             </div>
           </div>
           <div>
-            <h2 className="text-3xl font-black mb-4 text-gray-900 dark:text-white">100% Exam Pass <span className="text-[#08CB00]">Guarantee</span></h2>
+            <h2 className="text-3xl font-black mb-4 text-gray-900 dark:text-white">100% Educator Satisfaction <span className="text-[#08CB00]">Guarantee</span></h2>
             <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
-              We stand by our curriculum. If your students complete the required CAD PRACTICE modules and do not pass their official certification, we will refund your licensing costs. No questions asked.
+              Our mission is to help you build a smarter CAD lab. If CADpractice isn't the right fit for your classroom within the first 60 days, we will refund 100% of your purchase including your initial startup pack and any additional seats. No hurdles, no hassles. We’re only successful if your students are succeeding.
             </p>
             <Button variant="link" className="text-gray-900 dark:text-white font-bold hover:text-[#08CB00] transition-colors">
               Read the full policy terms

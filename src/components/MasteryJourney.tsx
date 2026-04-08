@@ -5,18 +5,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const skills = [
-  'sketching.',
-  'extrusions.',
-  'revolves.',
-  'assemblies.',
-  'drafting.',
-  'dimensioning.',
-  'tolerances.',
-  'blueprints.',
-  'efficiency.',
-  'precision.',
-  'certification.',
-  'engineering.',
+  'Extrude',
+  'Revolve',
+  '3D Printable Models',
+  'Hole Tool',
+  'Slot Tool',
+  'Rib Tool',
+  'Thin Walls/Shell',
+  'Multi-Body',
+  'Sheet Metal',
+  'Patterns',
+  'Sweep/Loft',
+  'Symmetry',
 ];
 
 export const MasteryJourney = () => {
@@ -66,7 +66,7 @@ export const MasteryJourney = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="min-h-[200vh] px-8 sm:px-20 relative overflow-visible cad-scroll-wrapper"
+      className="px-8 sm:px-20 relative overflow-visible cad-scroll-wrapper"
     >
       <div 
         ref={contentRef}
@@ -78,22 +78,22 @@ export const MasteryJourney = () => {
           ref={leftColRef}
           className="w-full md:w-1/2 h-screen flex items-center left-col"
         >
-          <h2 className="text-gray-900 dark:text-white font-bold text-[clamp(2.5rem,8vw,6rem)] leading-none m-0 sticky-text">
-            <span aria-hidden="true">Master&nbsp;</span>
-            <span className="sr-only">Master 3D CAD Skills.</span>
+          <h2 className="text-gray-900 dark:text-white font-black text-[clamp(2.5rem,6vw,4.5rem)] leading-tight m-0 sticky-text">
+            <span aria-hidden="true">The 12 CAD<br/><span className="text-[#08CB00]">Competencies</span></span>
+            <span className="sr-only">The 12 CAD Competencies</span>
           </h2>
         </div>
 
         {/* Right Side: Scrolling List */}
         <ul 
           ref={listRef} 
-          className="w-full md:w-1/2 list-none m-0 p-[50vh_0] text-[clamp(2.5rem,8vw,6rem)] font-bold leading-[1.2] scrolling-list" 
+          className="w-full md:w-1/2 list-none m-0 pt-[50vh] pb-[calc(50vh-1.2em)] text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.2] scrolling-list" 
           aria-hidden="true"
         >
           {skills.map((skill, index) => (
             <li 
               key={index} 
-              className="text-gray-600/20 dark:text-gray-400/20 mb-4 transition-[text-shadow] duration-300"
+              className="text-gray-600/20 dark:text-gray-400/20 mb-6 last:mb-0 transition-[text-shadow] duration-300"
             >
               {skill}
             </li>
