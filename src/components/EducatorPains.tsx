@@ -87,10 +87,10 @@ export const EducatorPains = () => {
         {/* Left Column - Pinned by GSAP */}
         <div ref={leftColRef} className="w-full lg:w-5/12 flex flex-col justify-center pr-0 lg:pr-16 z-10">
           <div className="inline-block px-4 py-1.5 rounded-full border border-[#08CB00]/30 bg-[#08CB00]/10 text-[#08CB00] text-sm font-bold tracking-wide mb-6 self-start">
-            THE CAD EDUCATOR'S STRUGGLE
+            THE PROBLEM
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 leading-tight tracking-tight">
-            The "Smarter CAD Workbook"
+            The CAD Educator's Struggle
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-10 leading-relaxed">
             From grading nightmares to certification gaps—teaching 3D modeling is harder than it should be. See how CADpractice changes the game.
