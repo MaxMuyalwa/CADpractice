@@ -37,30 +37,39 @@ export const HowItWorks = () => {
 
   useEffect(() => {
     const cards = gsap.utils.toArray(".how-it-works-stack .card");
+    const cardInners = gsap.utils.toArray(".how-it-works-stack .card-inner");
     if (!cards.length || !sectionRef.current) return;
 
-    // The "Spread" Animation
+    // The Spread & Flip Animation
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom bottom",
+        start: "top 80px", // Pin below the navbar so the text is always fully visible
+        end: "+=1000", // Further reduced scroll distance for a very snappy, intuitive animation
         scrub: 1,
         pin: true,
       }
     });
 
+    // 1. Spread the cards
     tl.to(cards, {
-      // Rotate each card differently: -15deg, -5deg, 5deg, 15deg
-      rotation: (i: number) => (i - (cards.length - 1) / 2) * 15,
-      // Spread them out horizontally
-      x: (i: number) => (i - (cards.length - 1) / 2) * 300,
+      // Rotate each card differently
+      rotation: (i: number) => (i - (cards.length - 1) / 2) * 10,
+      // Spread them out horizontally (adjusted for slightly larger cards)
+      x: (i: number) => (i - (cards.length - 1) / 2) * 220,
       // Slight vertical "arc" effect
-      y: (i: number) => Math.abs(i - (cards.length - 1) / 2) * 40,
-      scale: 1.1,
-      stagger: 0.1,
+      y: (i: number) => Math.abs(i - (cards.length - 1) / 2) * 20,
+      scale: 1.05,
+      stagger: 0.05, // Faster spread stagger
       ease: "power2.out"
     });
+
+    // 2. Flip the cards one by one
+    tl.to(cardInners, {
+      rotateY: 180,
+      stagger: 0.08, // Very fast stagger between flips
+      ease: "power2.inOut"
+    }, "+=0.05"); // Starts almost immediately after spreading
 
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
@@ -68,50 +77,75 @@ export const HowItWorks = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="how-it-works-stack relative h-[150vh] overflow-hidden">
-      <div className="stack-container sticky top-0 h-screen flex justify-center items-center pt-[40vh]">
+    <section ref={sectionRef} className="how-it-works-stack relative h-screen w-full overflow-hidden flex flex-col pt-8 md:pt-12 mb-[15vh]">
+      {/* Section Header - Moved up by reducing section pt, but kept visible by pinning at top 80px */}
+      <div className="w-full text-center shrink-0 z-50 mb-4 md:mb-8">
+        <h2 className="text-[#08CB00] text-6xl md:text-8xl font-black uppercase tracking-tighter">
+          How It Works
+        </h2>
+      </div>
+
+      {/* Cards Container - Added pt-[10vh] to keep cards lower while text moves up */}
+      <div className="stack-container relative flex-grow flex justify-center items-center w-full pb-12 pt-[10vh]">
         {steps.map((step, i) => (
           <div 
             key={i} 
-            className={`card card-${i + 1} absolute w-[280px] h-[380px] rounded-[20px] p-8 text-white flex flex-col justify-end shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden bg-[#E5E5E5] dark:bg-gray-900`}
+            className={`card card-${i + 1} absolute w-[240px] h-[340px] perspective-[1000px]`}
             style={{ 
               zIndex: steps.length - i,
               transformOrigin: 'center bottom'
             }}
           >
-            {/* Background Image */}
-            <img 
-              src={step.image} 
-              alt={step.title} 
-              className="absolute inset-0 w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-            />
-            {/* Gradient Overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 pointer-events-none" />
+            <div className="card-inner relative w-full h-full [transform-style:preserve-3d]">
+              
+              {/* FRONT OF CARD (Playing Card Back Placeholder) */}
+              <div className="absolute inset-0 w-full h-full rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden bg-gray-800 dark:bg-gray-900 [backface-visibility:hidden]">
+                {/* 
+                  PLACEHOLDER IMAGE: 
+                  Drop your image into the public/images folder and name it "card-back-placeholder.png" 
+                */}
+                <img 
+                  src="/images/card-back-placeholder.png" 
+                  alt="Card Back Placeholder" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-90"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    // Fallback if the image doesn't exist yet
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
+                />
+                {/* Decorative border to make it look more like a playing card */}
+                <div className="absolute inset-0 border-[6px] border-white/10 rounded-[20px] m-3 pointer-events-none" />
+                <div className="absolute inset-0 bg-[#08CB00]/20 mix-blend-overlay pointer-events-none" />
+              </div>
 
-            {/* Step Number (Top Right) */}
-            <span className="step-num absolute top-4 right-4 text-[4rem] font-black text-white/40 leading-none pointer-events-none z-10">
-              {step.step}
-            </span>
+              {/* BACK OF CARD (Actual Step Content) */}
+              <div className="absolute inset-0 w-full h-full rounded-[20px] p-6 text-white flex flex-col justify-end shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden bg-[#E5E5E5] dark:bg-gray-900 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                <img 
+                  src={step.image} 
+                  alt={step.title} 
+                  className="absolute inset-0 w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 pointer-events-none" />
 
-            {/* Text Content */}
-            <div className="relative z-10 mt-auto">
-              <h3 className="text-[2rem] font-extrabold uppercase m-0 leading-tight">
-                {step.title}
-              </h3>
-              <p className="text-lg font-semibold mt-2 leading-snug">
-                {step.description}
-              </p>
+                <span className="step-num absolute top-4 right-4 text-[3rem] font-black text-white/40 leading-none pointer-events-none z-10">
+                  {step.step}
+                </span>
+
+                <div className="relative z-10 mt-auto">
+                  <h3 className="text-[1.5rem] font-extrabold uppercase m-0 leading-tight">
+                    {step.title}
+                  </h3>
+                  <p className="text-base font-semibold mt-2 leading-snug">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Section Header Overlay */}
-      <div className="absolute top-12 left-0 w-full text-center pointer-events-none z-50">
-        <h2 className="text-[#08CB00] text-6xl md:text-8xl font-black uppercase tracking-tighter">
-          How It Works
-        </h2>
       </div>
     </section>
   );
