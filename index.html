@@ -5,10 +5,82 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CADpractice Landing Page by Max</title>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
   </head>
   <body>
+    <div id="star-container"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          // 1. Initialize Lenis
+          const lenis = new Lenis({
+              duration: 1.2,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              smooth: true,
+          });
+
+          function raf(time) {
+              lenis.raf(time);
+              requestAnimationFrame(raf);
+          }
+          requestAnimationFrame(raf);
+
+          // 2. Generate and Animate Particles
+          const container = document.getElementById('star-container');
+          if (!container) return;
+          container.innerHTML = '';
+
+          const count = 75; // Reduced slightly so it's not too distracting
+          const stars = [];
+
+          for (let i = 0; i < count; i++) {
+              const s = document.createElement('div');
+              s.className = 'star';
+
+              // Random Initial Positions
+              const x = Math.random() * 100;
+              const y = Math.random() * 100;
+
+              // 30% chance to be completely static (distant background particles)
+              const isStatic = Math.random() < 0.3;
+              const z = isStatic ? 0 : 0.2 + Math.random() * 0.6; // Speed factor
+              const size = isStatic ? 1 + Math.random() : 1 + Math.random() * 2.5; 
+
+              s.style.left = x + '%';
+              s.style.top = y + '%';
+              s.style.width = size + 'px';
+              s.style.height = size + 'px';
+
+              // Twinkle variation
+              s.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+              s.style.animationDelay = (Math.random() * 5) + 's';
+
+              container.appendChild(s);
+              stars.push({ el: s, initialY: y, speed: z });
+          }
+
+          // 3. Sync particle stretch and position with scroll velocity
+          lenis.on('scroll', ({ scroll, velocity }) => {
+              // Calculate stretch based on scroll speed
+              const stretch = Math.max(1, Math.min(1 + Math.abs(velocity) * 0.15, 4));
+
+              stars.forEach(star => {
+                  if (star.speed === 0) {
+                      star.el.style.transform = 'scaleY(1)';
+                      return;
+                  }
+
+                  // Move particles opposite to scroll to simulate depth
+                  let pos = (star.initialY - (scroll * star.speed * 0.05)) % 100;
+                  if (pos < 0) pos += 100;
+
+                  star.el.style.top = pos + '%';
+                  star.el.style.transform = `scaleY(${stretch})`;
+              });
+          });
+      });
+    </script>
   </body>
 </html>
 

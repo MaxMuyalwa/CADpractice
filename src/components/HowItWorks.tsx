@@ -73,7 +73,7 @@ export const HowItWorks = () => {
         {steps.map((step, i) => (
           <div 
             key={i} 
-            className={`card card-${i + 1} absolute w-[280px] h-[380px] rounded-[20px] p-8 text-white flex flex-col justify-end shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden bg-gray-900`}
+            className={`card card-${i + 1} absolute w-[280px] h-[380px] rounded-[20px] p-8 text-white flex flex-col justify-end shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden bg-[#E5E5E5] dark:bg-gray-900`}
             style={{ 
               zIndex: steps.length - i,
               transformOrigin: 'center bottom'

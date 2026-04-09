@@ -1,5 +1,6 @@
 import React from 'react';
 import { FileCheck, CheckCircle, TrendingUp, Lightbulb, Database, LayoutDashboard } from 'lucide-react';
+import { RevealText } from './RevealText';
 
 const features = [
   {
@@ -80,11 +81,15 @@ export const Features = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
-            The End of CAD <span className="text-[#08CB00]">Grading</span> Bottlenecks
+          <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4 flex flex-wrap justify-center items-center">
+            <RevealText text="The End of CAD" />
+            <span className="text-[#08CB00] mx-[0.25em]">
+              <RevealText text="Grading" delay={0.3} />
+            </span>
+            <RevealText text="Bottlenecks" delay={0.5} />
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Tools to help CAD educators reclaim their time!
+            <RevealText text="Tools to help CAD educators reclaim their time!" delay={0.7} />
           </p>
         </div>
         

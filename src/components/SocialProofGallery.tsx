@@ -140,7 +140,7 @@ export const SocialProofGallery = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="social-proof-gallery relative w-full h-screen overflow-hidden bg-[#111]">
+    <section ref={sectionRef} className="social-proof-gallery relative w-full h-screen overflow-hidden bg-[#E5E5E5] dark:bg-[#000805] transition-colors duration-300">
       <div className="gallery absolute w-full h-full overflow-hidden">
         <div className="absolute top-12 left-0 w-full text-center z-20">
           <h2 className="text-3xl md:text-5xl font-black italic tracking-tighter uppercase text-[#08CB00] mb-2">

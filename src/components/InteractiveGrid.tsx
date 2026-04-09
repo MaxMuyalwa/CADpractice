@@ -32,7 +32,7 @@ export const InteractiveGrid = () => {
   }, [mouseX, mouseY, glowX, glowY]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden bg-[#E5E5E5] dark:bg-[#000805]">
+    <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden bg-transparent">
       <motion.div 
         className="absolute inset-[-100px] matrix-grid opacity-20"
         style={{
