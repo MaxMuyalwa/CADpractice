@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Button } from './ui/Button';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -161,13 +162,19 @@ export const SocialProofGallery = () => {
           ))}
         </ul>
 
-        <div className="actions absolute bottom-[40px] left-1/2 -translate-x-1/2 flex items-center justify-center gap-4 z-20">
-          <button className="prev px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
-            Prev
-          </button>
-          <button className="next px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
-            Next
-          </button>
+        <div className="actions absolute bottom-[40px] left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-6 z-20">
+          <div className="flex items-center justify-center gap-4">
+            <button className="prev px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
+              Prev
+            </button>
+            <button className="next px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
+              Next
+            </button>
+          </div>
+          
+          <Button className="bg-[#08CB00] text-black hover:bg-[#08CB00]/90 font-bold px-8 py-6 rounded-xl text-lg shadow-[0_0_20px_rgba(8,203,0,0.3)] hover:shadow-[0_0_30px_rgba(8,203,0,0.5)] transition-all hover:-translate-y-1">
+            Join 500+ Educators
+          </Button>
         </div>
       </div>
     </section>

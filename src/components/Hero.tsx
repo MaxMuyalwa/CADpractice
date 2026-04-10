@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, PlayCircle } from 'lucide-react';
+import { ArrowRight, PlayCircle, Star } from 'lucide-react';
 import { Button } from './ui/Button';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -32,7 +32,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-[100dvh] min-h-[700px] flex flex-col justify-start pt-24 lg:pt-28 pb-0 transition-colors duration-300 overflow-hidden hero-section">
+    <section ref={sectionRef} className="relative h-[120dvh] min-h-[850px] flex flex-col justify-start pt-24 lg:pt-28 pb-0 transition-colors duration-300 overflow-hidden hero-section">
       {/* Background Glows */}
       <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[80vw] max-w-[1000px] h-[500px] 
         bg-[#08CB00]/15 dark:bg-[#08CB00]/20 rounded-full blur-[120px] pointer-events-none" />
@@ -51,7 +51,7 @@ export const Hero = () => {
           </h1>
           
           {/* Subheadline */}
-          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed max-w-xl mx-auto
+          <p className="text-xs sm:text-sm text-gray-600 dark:text-[#ebeef3] mb-4 leading-relaxed max-w-xl mx-auto
             animate-fade-in-up delay-200">
             Empower the next generation of engineers with game-based challenges
             that reward practice and precision. Track student progress in real-time from
@@ -70,11 +70,26 @@ export const Hero = () => {
               Watch Demo
             </Button>
           </div>
+
+          {/* Social Proof */}
+          <div className="mt-6 flex flex-col items-center justify-center gap-1.5 animate-fade-in-up delay-400">
+            <div className="flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-[#08CB00] text-[#08CB00]" />
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Dashboard Image / Carousel (Flat, glowing top border) */}
         <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up delay-400 flex-grow">
-          <div className="absolute inset-x-0 top-0 bottom-0 rounded-t-2xl sm:rounded-t-3xl border-t border-l border-r border-gray-200/50 dark:border-gray-700/50 bg-gray-100 dark:bg-[#0a0a0a] overflow-hidden shadow-[0_-20px_60px_rgba(8,203,0,0.15)]">
+          <div 
+            className="absolute inset-x-0 top-0 bottom-0 rounded-t-2xl sm:rounded-t-3xl border-t border-l border-r border-gray-200/50 dark:border-gray-700/50 bg-gray-100 dark:bg-[#0a0a0a] overflow-hidden shadow-[0_-20px_60px_rgba(8,203,0,0.15)]"
+            style={{
+              WebkitMaskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)',
+              maskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)'
+            }}
+          >
             {/* Inner top glow line */}
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#08CB00] to-transparent opacity-80 z-20" />
             
