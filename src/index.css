@@ -199,7 +199,7 @@
     100% { transform: translateX(-50%); }
   }
 
-  --animate-ticker: ticker 80s linear infinite;
+  --animate-ticker: ticker 120s linear infinite;
   --animate-fade-in-up: fadeInUp 0.6s ease-out forwards;
   --animate-float: float 3s ease-in-out infinite;
   --animate-spin-slow: spin-slow 10s linear infinite;

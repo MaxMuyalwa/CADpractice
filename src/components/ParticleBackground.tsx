@@ -122,10 +122,6 @@ export const ParticleBackground = () => {
         p.draw();
       });
 
-      // Test rendering with a red square in the center
-      ctx!.fillStyle = 'red';
-      ctx!.fillRect(canvas.width / 2 - 50, canvas.height / 2 - 50, 100, 100);
-
       animationFrameId = requestAnimationFrame(animate);
     };
 

@@ -1,13 +1,21 @@
 import React from 'react';
 
 const softwares = [
-  'AutoCAD',
-  'Revit',
-  'Rhino',
-  'SolidWorks',
-  'Fusion 360',
   'Onshape',
-  'Inventor'
+  'Fusion',
+  'SOLIDWORKS',
+  'FreeCAD',
+  'Alibre',
+  'Creo',
+  'Tinkercad',
+  'Catia',
+  'Plasticity',
+  'Inventor',
+  'IronCAD',
+  'SolidEdge',
+  'Rhino',
+  'NX',
+  '& More...'
 ];
 
 export const SoftwareTicker = () => {
@@ -38,8 +46,8 @@ export const SoftwareTicker = () => {
       </div>
 
       {/* Gradient Fades */}
-      <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-[#E5E5E5] dark:from-[#000805] via-[#E5E5E5]/50 dark:via-[#000805]/50 to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-[#E5E5E5] dark:from-[#000805] via-[#E5E5E5]/50 dark:via-[#000805]/50 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-background via-background/50 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-background via-background/50 to-transparent z-10 pointer-events-none" />
     </section>
   );
 };

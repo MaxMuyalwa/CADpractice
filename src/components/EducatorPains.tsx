@@ -1,35 +1,49 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight } from 'lucide-react';
+import { FileText, CheckCircle, BarChart3, Lightbulb, Database, LayoutDashboard } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const pains = [
   {
-    level: "LEVEL 01: THE CERTIFICATION GAP",
-    quote: "\"They pass the tutorial, but fail the state exam.\"",
-    subquote: "\"Can we build an exact replica to the state tests coming up?\"",
-    fix: "Mock Exam Engine. Realistic, timed simulations that mirror CSWA/Onshape environments to kill test-day anxiety."
+    icon: FileText,
+    challenge: "Educators spend time finding (or creating) 2D Drawings",
+    solutionTitle: "A library of Certified Blueprints",
+    solutionDesc: "Our library contains professionally vetted engineering blueprints ready for immediate deployment to your students.",
+    footer: "NO MORE MISSING DIMENSIONS!"
   },
   {
-    level: "LEVEL 02: TUTORIAL HELL",
-    quote: "Passive Watching ≠ Active Learning",
-    subquote: "\"My students are bored... they just watch videos without actually 'doing' the CAD.\"",
-    fix: "Deliberate Practice. Interactive tasks require 100% geometric accuracy before moving forward. No more \"zombie scrolling.\""
+    icon: CheckCircle,
+    challenge: "Grading CAD can be tedious and time consuming",
+    solutionTitle: "Instant Feedback for students",
+    solutionDesc: "Upon submission, students instantly know if they've succeeded. If incorrect, they get to keep trying.",
+    footer: "Educators spend less time correcting minor mistakes and more time answering in-depth modeling questions."
   },
   {
-    level: "LEVEL 03: THE GRADING TRAP",
-    quote: "\"I spend hours checking one dimension.\"",
-    subquote: "\"Opening 30 individual CAD files to check a hole diameter is killing my prep time.\"",
-    fix: "Auto-Grading & Instant Feedback. The system checks work in real-time, giving students a \"win\" and you a zero-effort gradebook."
+    icon: BarChart3,
+    challenge: "CAD Students are at different skill levels",
+    solutionTitle: "Tiered CAD Challenges",
+    solutionDesc: "Students who are brand new to 3D CAD can start on Level 1 and work their way up. Students who have more CAD experience can jump to level 4 or 5 (or higher) for more complicated CAD challenges."
   },
   {
-    level: "Expertise Gap",
-    quote: "\"I'm not always available to help every student troubleshoot.\"",
-    subquote: "",
-    fix: "Our library includes tutorials by CAD Expert TooTallToby. Everything is ready on day one, starting from the absolute beginner level (Origin & Modeling basics).",
-    badge: "EXPERT AUTHORED"
+    icon: Lightbulb,
+    challenge: "Educators spend too much time answering \"repeat\" questions",
+    solutionTitle: "Built-in Tutorials (from CAD EXPERT TooTallToby)",
+    solutionDesc: "Every student can access \"on demand\", 1-on-1 support. Our built-in tutorials provide step-by-step guides on how to complete the current CAD challenges, acting as a \"digital teaching assistant\" to help students the moment they get stuck.",
+    footer: "Educators spend less time answering repeat questions, and more time diving into deep and interesting conversations related to engineering and fabrication."
+  },
+  {
+    icon: Database,
+    challenge: "Not all CAD plug-ins work with our CAD system",
+    solutionTitle: "CAD Agnostic",
+    solutionDesc: "CADpractice.com works with any 3D CAD System - Onshape, Fusion, SOLIDWORKS, FreeCAD, Tinkercad, Inventor, Creo, and more."
+  },
+  {
+    icon: LayoutDashboard,
+    challenge: "It's hard to tell which students are struggling",
+    solutionTitle: "Educators Live Dashboard",
+    solutionDesc: "Total visibility from your desk. Create assignments and monitor results. See which students are stuck, which students are ahead, and which CAD competency skills they have mastered."
   }
 ];
 
@@ -39,93 +53,101 @@ export const EducatorPains = () => {
   const leftColRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  useEffect(() => {
-    const content = contentRef.current;
-    const leftCol = leftColRef.current;
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const content = contentRef.current;
+      const leftCol = leftColRef.current;
 
-    // 1. Pin the Left Column using GSAP
-    if (content && leftCol) {
-      ScrollTrigger.create({
-        trigger: content,
-        start: "top 20%",      // Pin when the top of the section hits 20% down the screen
-        end: "bottom bottom",  // Unpin when the bottom of the section hits the bottom of the screen
-        pin: leftCol,          // The element we are locking in place
-        pinSpacing: false,     // Prevent extra space since we're in a flex container
-      });
-    }
+      if (content && leftCol) {
+        // The "MasteryJourney" style pin
+        ScrollTrigger.create({
+          trigger: content,
+          start: "top top",
+          end: "bottom bottom",
+          pin: leftCol,
+          pinSpacing: false,
+        });
+      }
 
-    // 2. Animate the Cards
-    cardsRef.current.forEach((card) => {
-      if (!card) return;
-      
-      gsap.fromTo(card, 
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
+      // Animate the Cards
+      cardsRef.current.forEach((card) => {
+        if (!card) return;
+        
+        gsap.fromTo(card, 
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
           }
-        }
-      );
-    });
+        );
+      });
+    }, containerRef);
 
-    return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="pt-8 pb-8 px-4 sm:px-8 relative overflow-visible">
-      {/* 2-Column Layout */}
+    <section ref={containerRef} className="px-4 sm:px-8 relative bg-transparent overflow-visible">
       <div ref={contentRef} className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start relative">
         
         {/* Left Column - Pinned by GSAP */}
-        <div ref={leftColRef} className="w-full lg:w-5/12 flex flex-col justify-center pr-0 lg:pr-16 z-10">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 leading-tight tracking-tight">
-            The CAD Educator's Struggle
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-10 leading-relaxed">
-            From grading nightmares to certification gaps—teaching 3D modeling is harder than it should be. See how CADpractice changes the game.
-          </p>
-          <button className="flex items-center gap-3 px-8 py-4 bg-[#08CB00] text-black font-bold rounded-full hover:bg-[#0aed00] hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(8,203,0,0.3)] self-start">
-            Get Started <ArrowRight className="w-5 h-5" />
-          </button>
+        <div ref={leftColRef} className="w-full lg:w-5/12 h-screen flex items-center pr-0 lg:pr-16 z-10 mb-12 lg:mb-0">
+          <div className="flex flex-col">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-gray-900 dark:text-white mb-8 leading-tight tracking-tight">
+              The CAD Educator's Struggle
+            </h2>
+            <div className="space-y-6">
+              <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                Teaching CAD and 3D modeling is harder than it should be.
+              </p>
+              <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                See how CADpractice changes the game.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Right Column - Scrolling Cards */}
-        <div className="w-full lg:w-7/12 flex flex-col gap-[15vh] pt-[10vh] pb-[5vh]">
+        <div className="w-full lg:w-7/12 flex flex-col gap-8 pt-[20vh] pb-[20vh]">
           {pains.map((pain, index) => (
             <div 
               key={index}
               ref={el => cardsRef.current[index] = el}
-              className="p-8 sm:p-10 bg-white/60 dark:bg-black/40 backdrop-blur-xl border border-gray-200/50 dark:border-gray-800/50 rounded-3xl shadow-2xl"
+              className="p-8 sm:p-10 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/10 rounded-2xl shadow-2xl"
             >
-              <div className="text-[#08CB00] font-mono tracking-widest uppercase font-bold mb-4 text-sm">
-                {pain.level}
-              </div>
-              <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
-                {pain.quote}
-              </h3>
-              
-              {pain.subquote && (
-                <p className="italic text-lg text-gray-600 dark:text-gray-400 bg-gray-100/50 dark:bg-gray-900/50 p-5 border-l-4 border-[#08CB00] mb-8 rounded-r-lg">
-                  {pain.subquote}
-                </p>
-              )}
-              
-              <div className="bg-[#08CB00]/5 border border-[#08CB00]/30 p-6 rounded-2xl">
-                <strong className="text-[#08CB00] block mb-2">THE FIX:</strong>
-                <p className="text-gray-800 dark:text-gray-200 leading-relaxed text-lg">
-                  {pain.fix}
-                </p>
-                {pain.badge && (
-                  <div className="inline-block mt-4 px-3 py-1 bg-gray-900 dark:bg-white text-white dark:text-black text-xs font-bold rounded">
-                    {pain.badge}
+              <div className="space-y-6">
+                <div>
+                  <div className="text-[#08CB00] font-bold mb-1">Challenge:</div>
+                  <div className="text-[#08CB00] text-xl sm:text-2xl font-bold leading-tight">
+                    {pain.challenge}
+                  </div>
+                </div>
+
+                <div className="w-16 h-16 bg-gray-100 dark:bg-white/5 rounded-xl flex items-center justify-center border border-gray-200 dark:border-white/10">
+                  <pain.icon className="w-8 h-8 text-[#08CB00]" />
+                </div>
+
+                <div>
+                  <div className="text-gray-900 dark:text-white font-bold mb-2">
+                    SOLUTION: <span className="font-extrabold">{pain.solutionTitle}</span>
+                  </div>
+                  <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed">
+                    {pain.solutionDesc}
+                  </p>
+                </div>
+
+                {pain.footer && (
+                  <div className="pt-4 border-t border-gray-100 dark:border-white/5">
+                    <p className="text-gray-900 dark:text-white font-black uppercase tracking-wide text-sm sm:text-base">
+                      {pain.footer}
+                    </p>
                   </div>
                 )}
               </div>

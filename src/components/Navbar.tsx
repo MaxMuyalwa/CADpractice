@@ -1,89 +1,55 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Sun, Moon, ChevronDown, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Sun, Moon } from 'lucide-react';
 import { Button } from './ui/Button';
 import { useTheme } from '../contexts/ThemeContext';
 import { Logo } from './Logo';
 
 export const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+  const location = useLocation();
 
-  const navLinkClass = "text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-[#08CB00] dark:hover:text-[#08CB00] transition-colors duration-300";
+  const isActive = (href: string) => {
+    if (href.startsWith('http')) return false;
+    if (href.includes('#')) {
+      const [path, hash] = href.split('#');
+      return location.pathname === (path || '/') && location.hash === `#${hash}`;
+    }
+    return location.pathname === href;
+  };
 
-  const resourceItems = [
-    { label: "Toby's Pro Tips", href: "/#pro-tips" },
-    { label: "Training", href: "https://www.tootalltoby.com/training", external: true },
-    { label: "Discord", href: "https://discord.gg/tootalltoby", external: true },
-    { label: "Calendar", href: "/#calendar" },
-    { label: "Materials FAQ", href: "/materials-faq" },
-  ];
+  const getNavLinkClass = (href: string) => {
+    const active = isActive(href);
+    return `text-sm font-bold transition-colors duration-300 ${
+      active 
+        ? 'text-[#08CB00] dark:text-[#08CB00]' 
+        : 'text-gray-600 dark:text-gray-300 hover:text-[#08CB00] dark:hover:text-[#08CB00]'
+    }`;
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md transition-colors duration-300">
-      <div className="flex items-center justify-between px-8 py-4 max-w-6xl mx-auto">
-        <Link to="/" className="flex items-center gap-2">
-          <Logo className="w-10 h-10" />
-          <span className="text-2xl font-black tracking-tight text-gray-900 dark:text-white">
-            CAD<span className="text-[#08CB00]">practice</span>
-          </span>
-        </Link>
-
-        {/* Navigation Links */}
-        <div className="hidden md:flex items-center gap-8">
-          <Link to="/#about" className={navLinkClass}>About</Link>
-          <Link to="/#contact" className={navLinkClass}>Contact</Link>
-          
-          <div 
-            className="relative"
-            onMouseEnter={() => setIsResourcesOpen(true)}
-            onMouseLeave={() => setIsResourcesOpen(false)}
-          >
-            <button className={`${navLinkClass} flex items-center gap-1 cursor-pointer py-2`}>
-              Resources <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isResourcesOpen ? 'rotate-180' : ''}`} />
-            </button>
-            
-            {isResourcesOpen && (
-              <div className="absolute top-full left-0 pt-2 w-64 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                <div className="bg-white/95 dark:bg-black/90 backdrop-blur-xl border border-gray-200 dark:border-[#08CB00]/30 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_30px_rgba(8,203,0,0.15)] overflow-hidden p-1">
-                  {resourceItems.map((item, index) => (
-                    item.external ? (
-                      <a 
-                        key={index}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center justify-between px-4 py-3 text-sm font-bold text-gray-700 dark:text-gray-300 hover:bg-[#08CB00]/5 dark:hover:bg-[#08CB00]/10 rounded-lg transition-all duration-300"
-                      >
-                        <span className="group-hover:text-[#08CB00] group-hover:translate-x-1 transition-transform duration-300">
-                          {item.label}
-                        </span>
-                        <div className="bg-blue-500/10 dark:bg-blue-500/20 p-1 rounded-md group-hover:bg-[#08CB00]/20 transition-colors">
-                          <ExternalLink className="w-3.5 h-3.5 text-blue-500 dark:text-blue-400 group-hover:text-[#08CB00] transition-colors" />
-                        </div>
-                      </a>
-                    ) : (
-                      <Link 
-                        key={index}
-                        to={item.href} 
-                        className="group flex items-center justify-between px-4 py-3 text-sm font-bold text-gray-700 dark:text-gray-300 hover:bg-[#08CB00]/5 dark:hover:bg-[#08CB00]/10 rounded-lg transition-all duration-300"
-                        onClick={() => setIsResourcesOpen(false)}
-                      >
-                        <span className="group-hover:text-[#08CB00] group-hover:translate-x-1 transition-transform duration-300">
-                          {item.label}
-                        </span>
-                      </Link>
-                    )
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+      <div className="flex items-center justify-between px-12 py-4 w-full mx-auto">
+        {/* Left: Logo */}
+        <div className="flex-1 flex justify-start">
+          <Link to="/" className="flex items-center gap-2">
+            <Logo className="w-10 h-10" />
+            <span className="text-2xl font-black tracking-tight text-gray-900 dark:text-white">
+              CAD<span className="text-[#08CB00]">practice</span>
+            </span>
+          </Link>
         </div>
 
-        <div className="flex items-center gap-6">
-          <Link to="/#login" className={navLinkClass}>Log In</Link>
-          <Link to="/#signup" className={`${navLinkClass} text-[#08CB00] dark:text-[#08CB00]`}>Get Started</Link>
+        {/* Center: Navigation Links */}
+        <div className="hidden md:flex items-center gap-8">
+          <Link to="/about" className={getNavLinkClass('/about')}>About</Link>
+          <Link to="/materials-faq" className={getNavLinkClass('/materials-faq')}>Materials FAQ</Link>
+        </div>
+
+        {/* Right: Auth & Theme */}
+        <div className="flex-1 flex items-center justify-end gap-6">
+          <Link to="/#login" className={getNavLinkClass('/#login')}>Log In</Link>
+          <Link to="/#signup" className={getNavLinkClass('/#signup')}>Get Started</Link>
           
           <Button 
             variant="ghost" 
