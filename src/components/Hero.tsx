@@ -69,7 +69,7 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button 
                 size="lg" 
-                className="group relative flex items-center justify-center gap-3 bg-[#08CB00] hover:bg-[#07b500] text-white border-none px-8 py-6 text-lg font-bold rounded-2xl shadow-[0_0_30px_rgba(8,203,0,0.3)] hover:shadow-[0_0_40px_rgba(8,203,0,0.5)] transition-all duration-300"
+                className="group relative flex items-center justify-center gap-3 bg-[#08CB00] hover:bg-[#07b500] text-white dark:text-black border-none px-8 py-6 text-lg font-bold rounded-2xl shadow-[0_0_30px_rgba(8,203,0,0.3)] hover:shadow-[0_0_40px_rgba(8,203,0,0.5)] transition-all duration-300"
               >
                 Try Free Challenge
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
