@@ -76,11 +76,11 @@ export const Hero = () => {
               </Button>
               
               <Button 
-                variant="ghost" 
+                variant="outline" 
                 size="lg" 
-                className="flex items-center justify-center gap-3 px-8 py-6 text-lg font-bold text-gray-600 dark:text-gray-300 hover:text-[#08CB00] dark:hover:text-[#08CB00] hover:bg-[#08CB00]/5 dark:hover:bg-[#08CB00]/10 rounded-2xl transition-all duration-300"
+                className="flex items-center justify-center gap-3 px-8 py-6 text-lg font-bold text-gray-900 dark:text-white border-gray-300 dark:border-white/20 hover:border-[#08CB00] dark:hover:border-[#08CB00] bg-white/50 dark:bg-white/5 hover:bg-[#08CB00]/10 rounded-2xl transition-all duration-300 backdrop-blur-sm"
               >
-                <PlayCircle className="w-6 h-6" />
+                <PlayCircle className="w-6 h-6 text-[#08CB00]" />
                 Watch Demo
               </Button>
             </div>

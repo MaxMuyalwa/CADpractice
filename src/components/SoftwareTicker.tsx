@@ -22,7 +22,7 @@ export const SoftwareTicker = () => {
   return (
     <section className="py-16 overflow-hidden relative z-20">
       <div className="max-w-7xl mx-auto px-4 mb-10 text-center">
-        <p className="text-[10px] md:text-xs font-bold text-gray-600/60 dark:text-gray-400/60 uppercase tracking-[0.4em]">
+        <p className="text-[10px] md:text-xs font-bold text-[#dbdbe3] uppercase tracking-[0.4em]">
           Compatible with all leading CAD platforms
         </p>
       </div>

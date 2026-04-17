@@ -101,7 +101,7 @@ export const EducatorPains = () => {
         <div ref={leftColRef} className="w-full lg:w-5/12 h-screen flex items-center pr-0 lg:pr-16 z-10 mb-12 lg:mb-0">
           <div className="flex flex-col">
             <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-gray-900 dark:text-white mb-8 leading-tight tracking-tight">
-              The CAD Educator's Struggle
+              The <span className="text-[#08CB00]">CAD Educator's</span> Struggle
             </h2>
             <div className="space-y-6">
               <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
