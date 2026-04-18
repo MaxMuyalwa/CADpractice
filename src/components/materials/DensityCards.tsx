@@ -4,25 +4,25 @@ import { motion } from 'motion/react';
 export const DensityCards = () => {
   const materials = [
     { 
-      name: "Plain Carbon Steel", 
+      name: "PLAIN CARBON STEEL", 
       value: "7800", 
       unit: "kg/m³",
       style: "bg-gradient-to-br from-gray-400 via-gray-200 to-gray-500 shadow-inner border border-white/20"
     },
     { 
-      name: "6061 Aluminum", 
+      name: "6061 ALUMINUM", 
       value: "2700", 
       unit: "kg/m³",
       style: "bg-gradient-to-br from-gray-200 via-white to-gray-300 shadow-inner border border-white/40"
     },
     { 
-      name: "ABS (Plastic)", 
+      name: "ABS (PLASTIC)", 
       value: "1020", 
       unit: "kg/m³",
       style: "bg-yellow-400 shadow-[inset_0_2px_10px_rgba(255,255,255,0.5)] border border-yellow-500/50"
     },
     { 
-      name: "American Cherry", 
+      name: "AMERICAN CHERRY", 
       value: "570", 
       unit: "kg/m³",
       style: "bg-gradient-to-br from-orange-800 via-orange-600 to-orange-900 shadow-inner border border-orange-400/20"

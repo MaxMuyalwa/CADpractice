@@ -120,7 +120,7 @@ export const EducatorPains = () => {
             <div 
               key={index}
               ref={el => cardsRef.current[index] = el}
-              className="p-8 sm:p-10 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/10 rounded-2xl shadow-2xl"
+              className="p-8 sm:p-10 bg-transparent border border-gray-200 dark:border-white/10 rounded-2xl shadow-2xl backdrop-blur-[2px]"
             >
               <div className="space-y-6">
                 <div>

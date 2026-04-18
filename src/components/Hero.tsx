@@ -76,12 +76,19 @@ export const Hero = () => {
               </Button>
               
               <Button 
+                asChild
                 variant="outline" 
                 size="lg" 
                 className="flex items-center justify-center gap-3 px-8 py-6 text-lg font-bold text-gray-900 dark:text-white border-gray-300 dark:border-white/20 hover:border-[#08CB00] dark:hover:border-[#08CB00] bg-white/50 dark:bg-white/5 hover:bg-[#08CB00]/10 rounded-2xl transition-all duration-300 backdrop-blur-sm"
               >
-                <PlayCircle className="w-6 h-6 text-[#08CB00]" />
-                Watch Demo
+                <a 
+                  href="https://www.youtube.com/watch?v=nIbKGe5stow&list=PLDGrwExMGkBrDZ2biad6LK5aE6-Zw_oh5&index=1" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <PlayCircle className="w-6 h-6 text-[#08CB00]" />
+                  Watch Demo
+                </a>
               </Button>
             </div>
           </motion.div>
@@ -111,7 +118,7 @@ export const Hero = () => {
               {/* Glow effect behind image */}
               <div className="absolute -inset-4 bg-[#08CB00]/20 rounded-[2rem] blur-3xl opacity-50 transition-opacity duration-500 z-0" />
               
-              <div className="relative z-10 rounded-[2rem] overflow-hidden border border-gray-200/50 dark:border-white/10 shadow-2xl transform-gpu transition-transform duration-700 aspect-[1/1.15] max-h-[850px] mx-auto bg-white dark:bg-black">
+              <div className="relative z-10 rounded-[2rem] overflow-hidden border border-gray-200/50 dark:border-white/10 shadow-2xl transform-gpu transition-transform duration-700 aspect-[1/1.15] max-h-[850px] mx-auto bg-transparent">
                 <img 
                   src="/images/hero-placeholder.png" 
                   alt="CAD Challenges Library" 
@@ -125,9 +132,6 @@ export const Hero = () => {
                 
                 {/* Glass overlay effect */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
-                
-                {/* Bottom fade-out gradient */}
-                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background to-transparent pointer-events-none" />
               </div>
 
               {/* Decorative elements */}
@@ -157,7 +161,7 @@ export const Hero = () => {
               }}
             />
             
-            <div className="relative z-10 rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-xl aspect-[1/1.15] bg-white dark:bg-black">
+            <div className="relative z-10 rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-xl aspect-[1/1.15] bg-transparent">
               <img 
                 src="/images/hero-placeholder.png" 
                 alt="CAD Challenges Library" 
@@ -168,8 +172,6 @@ export const Hero = () => {
                   e.currentTarget.parentElement!.innerHTML = '<div class="flex items-center justify-center h-full bg-white dark:bg-black text-gray-400 font-bold text-xs">Hero Image Placeholder</div>';
                 }}
               />
-              {/* Bottom fade-out gradient */}
-              <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background to-transparent pointer-events-none" />
             </div>
           </motion.div>
 

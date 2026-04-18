@@ -40,11 +40,6 @@ export const SoftwareTicker = () => {
         </div>
       </div>
       
-      {/* Bottom Divider Line */}
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="h-[1px] bg-gray-200 dark:bg-gray-800 w-full" />
-      </div>
-
       {/* Gradient Fades */}
       <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-background via-background/50 to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-background via-background/50 to-transparent z-10 pointer-events-none" />

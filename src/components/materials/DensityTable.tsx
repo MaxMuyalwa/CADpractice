@@ -1,74 +1,120 @@
 import React from 'react';
 
 export const DensityTable = () => {
-  const tableData = [
-    { old: "PLAIN CARBON STEEL", new: "PLAIN CARBON STEEL", density: "7800", unit: "kg/m³" },
-    { old: "1060 ALUMINUM", new: "6061 ALUMINUM", density: "2700", unit: "kg/m³" },
-    { old: "ABS", new: "ABS", density: "1020", unit: "kg/m³" },
-    { old: "RED OAK", new: "AMERICAN CHERRY", density: "570", unit: "kg/m³" },
+  const mainTable = [
+    { name: "PLAIN CARBON STEEL", density: "7800", unit: "kg/m³" },
+    { name: "6061 ALUMINUM", density: "2700", unit: "kg/m³" },
+    { name: "ABS", density: "1020", unit: "kg/m³" },
+    { name: "AMERICAN CHERRY", density: "570", unit: "kg/m³" },
+  ];
+
+  const comparisonTable = [
+    { name: "ABS", system: "Onshape", density: "1052 kg/m³" },
+    { name: "ABS", system: "SOLIDWORKS", density: "1020 kg/m³" },
+    { name: "ABS Plastic", system: "Fusion", density: "1060 kg/m³" },
+    { name: "ABS-Generic", system: "FreeCAD", density: "1060 kg/m³" },
   ];
 
   return (
-    <section className="bg-white/50 dark:bg-black/40 backdrop-blur-xl border border-gray-200 dark:border-[#08CB00]/20 rounded-3xl p-8 md:p-12 shadow-2xl">
-      <div className="flex items-center gap-4 mb-10">
-        <div className="w-2 h-8 bg-[#08CB00] rounded-full" />
-        <h2 className="text-3xl font-black tracking-tight uppercase leading-tight">
-          What are the material names and densities used in the TooTallToby challenges?
-        </h2>
-      </div>
+    <section className="space-y-16">
+      {/* Table 1: Primary Materials */}
+      <div className="bg-white/50 dark:bg-black/40 backdrop-blur-xl border border-gray-200 dark:border-[#08CB00]/20 rounded-3xl p-8 md:p-12 shadow-2xl">
+        <div className="flex items-center gap-4 mb-10">
+          <div className="w-2 h-8 bg-[#08CB00] rounded-full" />
+          <h2 className="text-2xl md:text-3xl font-black tracking-tight uppercase leading-tight">
+            What are the CUSTOM MATERIAL names and densities?
+          </h2>
+        </div>
+        
+        <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl font-medium">
+          All CAD CHALLENGES in the <span className="text-gray-900 dark:text-white font-bold">CADpractice.com</span> library use one (or more) of the following materials and density values:
+        </p>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr className="text-left border-b border-gray-200 dark:border-white/10">
-              <th className="pb-4 pr-4">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#08CB00]">Custom Material Name</span>
-                <div className="flex gap-8 mt-1">
-                  <span className="text-xs font-bold text-gray-400 italic w-32 shrink-0">Before 2026</span>
-                  <span className="text-xs font-bold italic text-gray-900 dark:text-white">2026 & forward</span>
-                </div>
-              </th>
-              <th className="pb-4 px-4 text-right">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#08CB00]">Density</span>
-              </th>
-              <th className="pb-4 pl-4 text-right">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#08CB00]">Units</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100 dark:divide-white/5">
-            {tableData.map((row, idx) => (
-              <tr key={idx} className="group hover:bg-[#08CB00]/5 transition-colors">
-                <td className="py-4 pr-4">
-                  <div className="flex items-center gap-8">
-                    <span className="text-sm font-medium text-gray-400 italic w-32 shrink-0">{row.old}</span>
-                    <span className="text-sm font-black text-gray-900 dark:text-white group-hover:text-[#08CB00] transition-colors">{row.new}</span>
-                  </div>
-                </td>
-                <td className="py-4 px-4 text-right font-black text-lg text-gray-900 dark:text-white group-hover:text-[#08CB00] transition-colors">
-                  {row.density}
-                </td>
-                <td className="py-4 pl-4 text-right font-bold text-gray-400 dark:text-gray-500">
-                  {row.unit}
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="text-left border-b border-gray-200 dark:border-white/10">
+                <th className="pb-4 pr-4">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#08CB00]">Custom Material Name</span>
+                </th>
+                <th className="pb-4 px-4 text-right">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#08CB00]">Density</span>
+                </th>
+                <th className="pb-4 pl-4 text-right">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#08CB00]">Units</span>
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-100 dark:divide-white/5">
+              {mainTable.map((row, idx) => (
+                <tr key={idx} className="group hover:bg-[#08CB00]/5 transition-colors">
+                  <td className="py-6 pr-4">
+                    <span className="text-lg font-black text-gray-900 dark:text-white group-hover:text-[#08CB00] transition-colors uppercase tracking-tight">
+                      {row.name}
+                    </span>
+                  </td>
+                  <td className="py-6 px-4 text-right font-black text-2xl text-gray-900 dark:text-white group-hover:text-[#08CB00] transition-colors">
+                    {row.density}
+                  </td>
+                  <td className="py-6 pl-4 text-right font-bold text-gray-400 dark:text-gray-500">
+                    {row.unit}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <div className="mt-10 p-6 rounded-2xl bg-[#08CB00]/5 border border-[#08CB00]/20">
-        <p className="text-xs font-black uppercase tracking-widest text-[#08CB00] mb-4">Note: In the TooTallToby CUSTOM MATERIALS LIBRARY:</p>
-        <ul className="space-y-3">
-          <li className="text-sm text-gray-600 dark:text-gray-400 flex gap-3">
-            <span className="text-[#08CB00]">•</span>
-            <span>The density of <strong className="text-gray-900 dark:text-white">6061 ALUMINUM</strong> (new material) is the same as the density of <span className="italic">1060 ALUMINUM</span> (old material)</span>
-          </li>
-          <li className="text-sm text-gray-600 dark:text-gray-400 flex gap-3">
-            <span className="text-[#08CB00]">•</span>
-            <span>The density of <strong className="text-gray-900 dark:text-white">AMERICAN CHERRY</strong> (new material) is the same as the density of <span className="italic">RED OAK</span> (old material)</span>
-          </li>
-        </ul>
+      {/* Table 2: Comparison */}
+      <div className="bg-white/50 dark:bg-black/40 backdrop-blur-xl border border-gray-200 dark:border-[#08CB00]/20 rounded-3xl p-8 md:p-12 shadow-2xl">
+        <div className="flex items-center gap-4 mb-10">
+          <div className="w-2 h-8 bg-[#08CB00] rounded-full" />
+          <h2 className="text-2xl md:text-3xl font-black tracking-tight uppercase leading-tight">
+            "SAME NAME" MATERIALS - DIFFERENT DENSITIES
+          </h2>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="text-left border-b border-gray-200 dark:border-white/10">
+                <th className="pb-4 pr-4">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#08CB00]">Material Name</span>
+                </th>
+                <th className="pb-4 px-4 text-center">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#08CB00]">3D CAD Package</span>
+                </th>
+                <th className="pb-4 pl-4 text-right">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#08CB00]">Density</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100 dark:divide-white/5">
+              {comparisonTable.map((row, idx) => (
+                <tr key={idx} className="group hover:bg-[#08CB00]/5 transition-colors">
+                  <td className="py-6 pr-4">
+                    <span className="font-bold text-gray-900 dark:text-white group-hover:text-[#08CB00] transition-colors">
+                      {row.name}
+                    </span>
+                  </td>
+                  <td className="py-6 px-4 text-center font-bold text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+                    {row.system}
+                  </td>
+                  <td className="py-6 pl-4 text-right font-black text-gray-900 dark:text-white group-hover:text-[#08CB00] transition-colors">
+                    {row.density}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        
+        <div className="mt-10 p-6 rounded-2xl bg-red-500/5 border border-red-500/20">
+          <p className="text-sm text-red-500 font-bold leading-relaxed">
+            <span className="uppercase font-black mr-2">This is a problem</span> - and it means we can’t simply rely on the DEFAULT material library. We must create a custom library of materials.
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { DensityCards } from '../components/materials/DensityCards';
-import { MaterialsList } from '../components/materials/MaterialsList';
 import { DensityTable } from '../components/materials/DensityTable';
 import { CADTutorials } from '../components/materials/CADTutorials';
 import { EvolvingFAQ } from '../components/materials/EvolvingFAQ';
@@ -10,18 +9,26 @@ export const MaterialsFAQ = () => {
   return (
     <main className="pt-32 pb-20 px-4 relative z-10">
       <div className="max-w-4xl mx-auto">
+        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
-            TooTallToby's <span className="text-[#08CB00]">CUSTOM MATERIALS</span>
-            <br />
-            <span className="text-2xl md:text-4xl opacity-80">- How to and FAQ -</span>
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-black tracking-tight mb-6 uppercase text-gray-900 dark:text-white whitespace-nowrap">
+            <span className="text-[#08CB00]">CUSTOM</span> Materials Libraries
           </h1>
-          <div className="h-1 w-24 bg-[#08CB00] mx-auto rounded-full" />
+          <p className="text-xl md:text-2xl font-bold opacity-80 mb-2">
+            - How to and FAQ -
+          </p>
+          <p className="text-lg md:text-xl font-medium text-gray-500 dark:text-gray-400">
+            For various 3D CAD systems
+          </p>
+          <div className="h-1 w-24 bg-[#08CB00] mx-auto rounded-full mt-8" />
+          <p className="mt-4 text-xs font-bold uppercase tracking-widest text-gray-400">
+            By Toby on April 15, 2026
+          </p>
         </motion.div>
 
         <motion.div
@@ -30,23 +37,99 @@ export const MaterialsFAQ = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="space-y-12"
         >
-          <DensityCards />
-          <MaterialsList />
+          {/* Section 1: Names and Densities */}
+          <div className="space-y-6">
+            <DensityCards />
+            <div className="text-center">
+              <p className="text-gray-500 dark:text-gray-400 font-medium">
+                The 4 materials used at <a href="https://cadpractice.com" className="text-[#08CB00] border-b border-[#08CB00]/30 hover:border-[#08CB00] transition-colors pb-0.5">CADpractice.com</a>
+              </p>
+            </div>
+          </div>
           <DensityTable />
 
-          {/* Detailed FAQ Sections - Not in boxes */}
-          <section className="py-12 px-4 md:px-8 space-y-20">
+          {/* Section: Why Custom Materials? */}
+          <section className="py-12 space-y-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="max-w-3xl"
+              className="space-y-8"
             >
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-4 text-gray-900 dark:text-white uppercase">
-                Why do we use custom material densities?
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white uppercase leading-tight">
+                  Why do we use CUSTOM MATERIAL densities?
+                </h2>
+                <div className="w-16 h-1 bg-[#08CB00]" />
+              </div>
+              
+              <div className="space-y-6 text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl">
+                <p>
+                  At <span className="text-gray-900 dark:text-white font-bold">CADpractice.com</span> we challenge the user to calculate the mass of a 3D model, and <span className="text-[#08CB00] font-bold">mass is calculated by multiplying volume x density.</span>
+                </p>
+                <p>
+                  Therefore, if your material density does not match the material density on the 2D drawing title block, your answer will be <span className="text-red-500 font-bold uppercase">incorrect</span> (even if the model geometry is correct).
+                </p>
+                <p>
+                  We’ve discovered that different 3D CAD packages ship with "Default Materials Libraries" which contain materials with the <span className="font-bold">SAME MATERIAL NAME</span>, but which have have a <span className="text-[#08CB00] font-bold">DIFFERENT MATERIAL DENSITY.</span>
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Added Table here via subcomponent update later */}
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white uppercase leading-tight">
+                A valuable skill to learn!
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
-                Most CAD software has built-in materials, but their densities can vary slightly between programs (e.g., one might use 7850 kg/m³ for steel while another uses 7800 kg/m³). To ensure everyone gets the <span className="font-bold text-[#08CB00]">EXACT SAME MASS</span> regardless of their software, TooTallToby uses standardized custom densities.
+              <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl">
+                We also decided to add "custom materials" to our CADpractice.com challenges to help CAD designers learn a fundamental skill: <span className="text-gray-900 dark:text-white font-bold italic underline">Creating and managing a new custom materials library in your CAD system.</span>
+              </p>
+              <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl pt-4">
+                As a CAD designer (or engineer), you’ll regularly need to calculate the mass of your 3D models by <span className="font-bold italic text-[#08CB00]">multiplying volume x density</span> – and the density is typically applied by assigning a "material" to your 3D model.
+              </p>
+              
+              <div className="p-8 rounded-2xl bg-gray-50/50 dark:bg-white/5 border border-gray-100 dark:border-white/5 space-y-4">
+                <p className="text-sm font-bold uppercase tracking-widest text-gray-400">At some point you’ll be asked to:</p>
+                <ul className="space-y-4">
+                  <li className="flex gap-4 items-start">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#08CB00] mt-2 shrink-0" />
+                    <p className="text-gray-700 dark:text-gray-300">Use a <span className="font-bold">custom density provided by the customer</span> (instead of the "out of the box material density")</p>
+                  </li>
+                  <li className="flex gap-2 items-center text-xs font-black text-[#08CB00] uppercase tracking-[0.2em] py-2">
+                    <div className="h-[1px] flex-1 bg-[#08CB00]/20" />
+                    <span>AND / OR</span>
+                    <div className="h-[1px] flex-1 bg-[#08CB00]/20" />
+                  </li>
+                  <li className="flex gap-4 items-start">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#08CB00] mt-2 shrink-0" />
+                    <p className="text-gray-700 dark:text-gray-300">Work with <span className="font-bold">a material that does not exist</span> in the "out of the box" library of materials</p>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Matweb Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="text-2xl md:text-3xl font-black tracking-tight text-gray-900 dark:text-white uppercase">
+                Matweb - an online library of materials
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl">
+                Sometimes the customer will provide these material specifications, and sometimes you’ll be tasked to find the material properties, at which point you can rely on resources like{' '}
+                <a href="https://www.matweb.com/" target="_blank" rel="noopener noreferrer" className="text-[#08CB00] font-black hover:underline">
+                  https://www.matweb.com/
+                </a>{' '}
+                to examine the properties of a wide variety of materials.
               </p>
             </motion.div>
 
@@ -54,26 +137,22 @@ export const MaterialsFAQ = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="space-y-6"
             >
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-4 text-gray-900 dark:text-white uppercase">
-                Why did 2 of the TooTallToby materials change?
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white uppercase leading-tight">
+                How to create custom materials in for CADpractice.com
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
-                In 2026, the material names were updated to be more descriptive and professional. <span className="italic">1060 Aluminum</span> became <span className="font-bold text-gray-900 dark:text-white">6061 ALUMINUM</span> and <span className="italic">Red Oak</span> became <span className="font-bold text-gray-900 dark:text-white">AMERICAN CHERRY</span>. The densities remained exactly the same to maintain compatibility with older challenges.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-4 text-gray-900 dark:text-white uppercase">
-                How do I create a new custom material?
-              </h2>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mb-8">
-                The process varies by software, but the goal is always the same: create a new material entry and manually set the <span className="font-bold text-[#08CB00]">DENSITY</span> value to match the TooTallToby standards.
-              </p>
+              <div className="space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl italic font-medium">
+                <p>
+                  As of April 2026, the CADpractice team is in the process of creating content for all 3D CAD systems, explaining this process.
+                </p>
+                <p>
+                  CADpractice.com was created by TooTallToby, and his website (TooTallToby.com) uses the same materials.
+                </p>
+                <p>
+                   Some of these HOW TO guides will reference the TooTallToby materials, until the migration process is complete.
+                </p>
+              </div>
             </motion.div>
 
             <CADTutorials />
