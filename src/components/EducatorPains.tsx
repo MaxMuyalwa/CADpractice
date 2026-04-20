@@ -58,7 +58,7 @@ export const EducatorPains = () => {
       const content = contentRef.current;
       const leftCol = leftColRef.current;
 
-      if (content && leftCol) {
+      if (content && leftCol && window.innerWidth >= 768) {
         // The "MasteryJourney" style pin
         ScrollTrigger.create({
           trigger: content,
@@ -94,20 +94,27 @@ export const EducatorPains = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="px-4 sm:px-8 relative bg-transparent overflow-visible">
-      <div ref={contentRef} className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start relative">
+    <section 
+      ref={containerRef} 
+      className="px-4 sm:px-8 relative bg-transparent overflow-visible pt-4 md:pt-8 lg:pt-12 pb-12 md:pb-20 lg:pb-32"
+      style={{ 
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%)',
+        maskImage: 'linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%)'
+      }}
+    >
+      <div ref={contentRef} className="max-w-7xl mx-auto flex flex-col md:flex-row items-start relative">
         
         {/* Left Column - Pinned by GSAP */}
-        <div ref={leftColRef} className="w-full lg:w-5/12 h-screen flex items-center pr-0 lg:pr-16 z-10 mb-12 lg:mb-0">
+        <div ref={leftColRef} className="w-full md:w-5/12 h-screen flex items-center pr-0 md:pr-12 lg:pr-16 z-10 mb-12 md:mb-0">
           <div className="flex flex-col">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-gray-900 dark:text-white mb-8 leading-tight tracking-tight">
+            <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black text-gray-900 dark:text-white mb-4 md:mb-8 leading-tight tracking-tight">
               The <span className="text-[#08CB00]">CAD Educator's</span> Struggle
             </h2>
-            <div className="space-y-6">
-              <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+            <div className="space-y-3 md:space-y-6">
+              <p className="text-lg sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
                 Teaching CAD and 3D modeling is harder than it should be.
               </p>
-              <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="text-lg sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
                 See how CADpractice changes the game.
               </p>
             </div>
@@ -115,7 +122,7 @@ export const EducatorPains = () => {
         </div>
 
         {/* Right Column - Scrolling Cards */}
-        <div className="w-full lg:w-7/12 flex flex-col gap-8 pt-[20vh] pb-[20vh]">
+        <div className="w-full md:w-7/12 flex flex-col gap-4 md:gap-8 pt-[5vh] md:pt-[15vh] pb-[5vh] md:pb-[15vh]">
           {pains.map((pain, index) => (
             <div 
               key={index}

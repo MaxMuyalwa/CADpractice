@@ -29,7 +29,7 @@ export const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md transition-colors duration-300">
-      <div className="flex items-center justify-between px-12 py-4 w-full mx-auto">
+      <div className="flex items-center justify-between px-6 md:px-12 py-3 lg:py-4 w-full mx-auto">
         {/* Left: Logo */}
         <div className="flex-1 flex justify-start">
           <Link to="/" className="flex items-center gap-2">

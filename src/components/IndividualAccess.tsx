@@ -24,29 +24,29 @@ export const IndividualAccess = () => {
   ];
 
   return (
-    <section className="py-24 px-4 sm:px-8 bg-transparent relative overflow-hidden">
+    <section className="py-12 md:py-20 lg:py-24 px-4 sm:px-8 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
           
           {/* Left Column */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
+            transition={{ duration: 0.6 }}
+            className="space-y-4 md:space-y-6 lg:space-y-8"
           >
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+            <div className="space-y-2 md:space-y-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white leading-tight tracking-tight">
                 Individual Access - $50/Year
               </h2>
-              <h3 className="text-2xl md:text-3xl font-bold text-[#08CB00]">
+              <h3 className="text-xl md:text-3xl font-bold text-[#08CB00]">
                 Not in a Classroom? <br />
                 Practice on Your Own.
               </h3>
             </div>
             
-            <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
+            <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-xl">
               Master the same challenges used in top engineering classrooms. 
               Whether you’re prepping for certification or competing for the top of the leaderboard, 
               CADpractice gives you the tools to succeed.
@@ -54,7 +54,7 @@ export const IndividualAccess = () => {
 
             <Button 
               size="lg" 
-              className="bg-[#08CB00] hover:bg-[#07b500] text-black font-black px-10 py-8 text-lg rounded-2xl shadow-[0_0_30px_rgba(8,203,0,0.2)]"
+              className="bg-[#08CB00] hover:bg-[#07b500] text-white dark:text-black font-black px-6 py-4 lg:px-10 lg:py-8 text-base md:text-lg rounded-2xl shadow-[0_0_30px_rgba(8,203,0,0.2)]"
             >
               Create your STUDENT ACCOUNT
             </Button>
@@ -74,8 +74,8 @@ export const IndividualAccess = () => {
                   <CheckCircle2 className="w-6 h-6 text-[#08CB00] fill-[#08CB00]/10" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-lg font-bold text-white">
-                    {point.title}: <span className="font-medium text-gray-400">{point.description}</span>
+                  <p className="text-lg font-bold text-gray-900 dark:text-white">
+                    {point.title}: <span className="font-medium text-gray-600 dark:text-gray-400">{point.description}</span>
                   </p>
                 </div>
               </div>

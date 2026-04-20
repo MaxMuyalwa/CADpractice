@@ -100,13 +100,12 @@ export const SocialProofGallery = () => {
         trigger: sectionRef.current,
         onUpdate(self) {
           // Drive the offset based on progress. 
-          // We'll make it loop 3 times over the 3000px scroll distance.
-          const loops = 3;
+          const loops = window.innerWidth < 1024 ? 1.5 : 3;
           // @ts-ignore
           scrub.vars.offset = self.progress * seamlessLoop.duration() * loops;
           scrub.invalidate().restart();
         },
-        end: "+=3000",
+        end: window.innerWidth < 1024 ? "+=1500" : "+=3000",
         pin: true,
       });
 
@@ -143,8 +142,8 @@ export const SocialProofGallery = () => {
   return (
     <section ref={sectionRef} className="social-proof-gallery relative w-full h-screen overflow-hidden bg-[#E5E5E5] dark:bg-[#000805] transition-colors duration-300">
       <div className="gallery absolute w-full h-full overflow-hidden">
-        <div className="absolute top-12 left-0 w-full text-center z-20">
-          <h2 className="text-3xl md:text-5xl font-black italic tracking-tighter uppercase text-[#08CB00] mb-2">
+        <div className="absolute top-8 md:top-12 left-0 w-full text-center z-20">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black italic tracking-tighter uppercase text-[#08CB00] mb-2">
             Expert Authority
           </h2>
           <p className="text-gray-600 dark:text-gray-400 font-bold uppercase tracking-widest text-xs opacity-60">
@@ -152,11 +151,11 @@ export const SocialProofGallery = () => {
           </p>
         </div>
 
-        <ul className="cards absolute w-[14rem] h-[18rem] top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 list-none p-0 m-0">
+        <ul className="cards absolute w-[12rem] md:w-[14rem] h-[16rem] md:h-[18rem] top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 list-none p-0 m-0">
           {images.map((src, i) => (
             <li 
               key={i} 
-              className="absolute top-0 left-0 w-[14rem] aspect-[9/16] bg-contain bg-no-repeat rounded-[0.8rem] shadow-[0_0_30px_rgba(8,203,0,0.2)]"
+              className="absolute top-0 left-0 w-[12rem] md:w-[14rem] aspect-[9/16] bg-contain bg-no-repeat rounded-[0.8rem] shadow-[0_0_30px_rgba(8,203,0,0.2)]"
               style={{ backgroundImage: `url(${src})` }}
             />
           ))}
@@ -164,15 +163,15 @@ export const SocialProofGallery = () => {
 
         <div className="actions absolute bottom-[40px] left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-6 z-20">
           <div className="flex items-center justify-center gap-4">
-            <button className="prev px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
+            <button className="prev px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-white dark:hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
               Prev
             </button>
-            <button className="next px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
+            <button className="next px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-white dark:hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
               Next
             </button>
           </div>
           
-          <Button className="bg-[#08CB00] text-black hover:bg-[#08CB00]/90 font-bold px-8 py-6 rounded-xl text-lg shadow-[0_0_20px_rgba(8,203,0,0.3)] hover:shadow-[0_0_30px_rgba(8,203,0,0.5)] transition-all hover:-translate-y-1">
+          <Button className="bg-[#08CB00] text-white dark:text-black hover:bg-[#08CB00]/90 font-bold px-8 py-6 rounded-xl text-lg shadow-[0_0_20px_rgba(8,203,0,0.3)] hover:shadow-[0_0_30px_rgba(8,203,0,0.5)] transition-all hover:-translate-y-1">
             Join 500+ Educators
           </Button>
         </div>

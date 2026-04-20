@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, PlayCircle, CheckCircle2 } from 'lucide-react';
 import { Button } from './ui/Button';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 export const Hero = () => {
   const features = [
@@ -20,32 +21,38 @@ export const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-transparent">
+    <section 
+      className="relative min-h-[calc(100vh-80px)] pt-20 md:pt-24 lg:pt-32 pb-8 md:pb-12 overflow-hidden bg-transparent"
+      style={{ 
+        WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+        maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
+      }}
+    >
       {/* Background Glows */}
       <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-[#08CB00]/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-[#08CB00]/5 rounded-full blur-[120px] pointer-events-none" />
       
-      <div className="w-full max-w-[1440px] mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-4 lg:gap-24 items-center">
           
           {/* Left Column: Content */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -15 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col space-y-10"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col space-y-4 md:space-y-6 lg:space-y-10"
           >
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white leading-[1.1] tracking-tight">
+            <div className="space-y-2 md:space-y-3">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-black text-gray-900 dark:text-white leading-[1.1] tracking-tight">
                 The Perfect Tool for <br />
                 <span className="text-gray-900 dark:text-white">CAD Practice</span>
               </h1>
-              <p className="text-xl sm:text-2xl font-bold text-[#08CB00] italic tracking-tight">
+              <p className="text-base sm:text-lg lg:text-2xl font-bold text-[#08CB00] italic tracking-tight">
                 The "Smarter CAD Workbook" for STEM Educators
               </p>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-3 md:space-y-4 lg:space-y-8">
               {features.map((feature, index) => (
                 <motion.div 
                   key={index}
@@ -68,25 +75,28 @@ export const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button 
+                asChild
                 size="lg" 
-                className="group relative flex items-center justify-center gap-3 bg-[#08CB00] hover:bg-[#07b500] text-white dark:text-black border-none px-8 py-6 text-lg font-bold rounded-2xl shadow-[0_0_30px_rgba(8,203,0,0.3)] hover:shadow-[0_0_40px_rgba(8,203,0,0.5)] transition-all duration-300"
+                className="group relative flex items-center justify-center gap-2 md:gap-3 bg-[#08CB00] hover:bg-[#07b500] text-white dark:text-black border-none px-6 py-4 lg:px-8 lg:py-6 text-base lg:text-lg font-bold rounded-2xl shadow-[0_0_30px_rgba(8,203,0,0.3)] hover:shadow-[0_0_40px_rgba(8,203,0,0.5)] transition-all duration-300"
               >
-                Try Free Challenge
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Link to="/challenges">
+                  Try Free Challenge
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
               
               <Button 
                 asChild
                 variant="outline" 
                 size="lg" 
-                className="flex items-center justify-center gap-3 px-8 py-6 text-lg font-bold text-gray-900 dark:text-white border-gray-300 dark:border-white/20 hover:border-[#08CB00] dark:hover:border-[#08CB00] bg-white/50 dark:bg-white/5 hover:bg-[#08CB00]/10 rounded-2xl transition-all duration-300 backdrop-blur-sm"
+                className="flex items-center justify-center gap-2 md:gap-3 px-6 py-4 lg:px-8 lg:py-6 text-base lg:text-lg font-bold text-gray-900 dark:text-white border-gray-300 dark:border-white/20 hover:border-[#08CB00] dark:hover:border-[#08CB00] bg-white/50 dark:bg-white/5 hover:bg-[#08CB00]/10 rounded-2xl transition-all duration-300 backdrop-blur-sm"
               >
                 <a 
                   href="https://www.youtube.com/watch?v=nIbKGe5stow&list=PLDGrwExMGkBrDZ2biad6LK5aE6-Zw_oh5&index=1" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  <PlayCircle className="w-6 h-6 text-[#08CB00]" />
+                  <PlayCircle className="w-5 h-5 md:w-6 md:h-6 text-[#08CB00]" />
                   Watch Demo
                 </a>
               </Button>
@@ -95,10 +105,10 @@ export const Hero = () => {
 
           {/* Right Column: Image with 3D Perspective */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotateY: -20, rotateX: 10, x: 50 }}
-            animate={{ opacity: 1, scale: 1, rotateY: 25, rotateX: 8, rotateZ: 2, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9, rotateY: -25, rotateX: 12, x: 50 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 30, rotateX: 10, rotateZ: 2, x: 0 }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-            className="relative perspective-3000 hidden lg:block"
+            className="relative perspective-3000 hidden md:block"
           >
             <div className="relative">
               {/* Matrix Grid behind image - Peaking at edges */}
@@ -118,7 +128,13 @@ export const Hero = () => {
               {/* Glow effect behind image */}
               <div className="absolute -inset-4 bg-[#08CB00]/20 rounded-[2rem] blur-3xl opacity-50 transition-opacity duration-500 z-0" />
               
-              <div className="relative z-10 rounded-[2rem] overflow-hidden border border-gray-200/50 dark:border-white/10 shadow-2xl transform-gpu transition-transform duration-700 aspect-[1/1.15] max-h-[850px] mx-auto bg-transparent">
+              <div 
+                className="relative z-10 rounded-[2rem] overflow-hidden border border-gray-200/50 dark:border-white/10 shadow-2xl transform-gpu transition-transform duration-700 aspect-[1/1.15] max-h-[450px] md:max-h-[550px] lg:max-h-[850px] mx-auto bg-transparent"
+                style={{ 
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+                  maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
+                }}
+              >
                 <img 
                   src="/images/hero-placeholder.png" 
                   alt="CAD Challenges Library" 
@@ -140,12 +156,12 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Mobile Image (Simplified) */}
+          {/* Mobile Image (Simplified) - Only on screens smaller than tablet */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="lg:hidden mt-12 relative max-w-[500px] mx-auto"
+            className="md:hidden mt-12 relative max-w-[500px] mx-auto"
           >
             {/* Matrix Grid behind mobile image - Peaking at edges */}
             <div 
@@ -161,7 +177,13 @@ export const Hero = () => {
               }}
             />
             
-            <div className="relative z-10 rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-xl aspect-[1/1.15] bg-transparent">
+            <div 
+              className="relative z-10 rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-xl aspect-[1/1.15] bg-transparent"
+              style={{ 
+                WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+                maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
+              }}
+            >
               <img 
                 src="/images/hero-placeholder.png" 
                 alt="CAD Challenges Library" 

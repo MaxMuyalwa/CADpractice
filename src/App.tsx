@@ -3,17 +3,21 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { MaterialsFAQ } from './pages/MaterialsFAQ';
+import { NotFound } from './pages/NotFound';
 import { Layout } from './components/Layout';
+import { ScrollToTop } from './components/ScrollToTop';
 
 // App component
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/materials-faq" element={<MaterialsFAQ />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>

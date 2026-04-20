@@ -33,17 +33,23 @@ export const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-24 px-4 bg-transparent relative z-10 transition-colors duration-300">
+    <section 
+      className="py-12 md:py-20 lg:py-24 px-4 bg-transparent relative z-10 transition-colors duration-300"
+      style={{ 
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+        maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
+      }}
+    >
       <div className="max-w-7xl mx-auto text-center">
         {/* Testimonials Title */}
-        <div className="mb-12">
-          <h3 className="text-3xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white">
+        <div className="mb-8 md:mb-12">
+          <h3 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white">
             What <span className="text-[#08CB00]">Educators</span> are Saying
           </h3>
         </div>
 
         {/* Testimonial Slideshow */}
-        <div className="mb-16 max-w-5xl mx-auto min-h-[350px] flex flex-col justify-center">
+        <div className="mb-8 md:mb-16 max-w-5xl mx-auto min-h-[300px] md:min-h-[350px] flex flex-col justify-center px-4">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
