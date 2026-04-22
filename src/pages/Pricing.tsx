@@ -186,55 +186,69 @@ export const Pricing = () => {
 
         {/* Toggle */}
         <div className="flex justify-center mb-12 md:mb-16">
-          <div className="flex bg-gray-200 dark:bg-white/5 p-1 rounded-full border border-gray-300 dark:border-white/10 backdrop-blur-xl shadow-lg relative overflow-hidden group/toggle">
+          <div className="flex bg-gray-200 dark:bg-white/5 p-1 rounded-full border border-gray-300 dark:border-white/10 backdrop-blur-xl shadow-lg relative isolate overflow-hidden">
             
             <button 
               onClick={() => setActiveTab('free')}
-              className={`relative px-10 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-full transition-all duration-200 z-10 ${
+              className={`relative px-10 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-full transition-all duration-300 z-10 ${
                 activeTab === 'free' 
-                ? 'text-white dark:text-black bg-gray-900 dark:bg-[#08CB00] shadow-[0_0_15px_rgba(8,203,0,0.2)]' 
-                : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white bg-transparent'
+                ? 'text-white dark:text-black' 
+                : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
+              {activeTab === 'free' && (
+                <motion.div
+                  layoutId="holo-bg"
+                  className="absolute inset-0 bg-gray-900 dark:bg-[#08CB00] rounded-full z-[-1] shadow-[0_0_20px_rgba(8,203,0,0.5)]"
+                  initial={false}
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
               Free
             </button>
             
             <button 
               onClick={() => setActiveTab('paid')}
-              className={`relative px-10 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-full transition-all duration-200 z-10 ${
+              className={`relative px-10 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-full transition-all duration-300 z-10 ${
                 activeTab === 'paid' 
-                ? 'text-white dark:text-black bg-gray-900 dark:bg-[#08CB00] shadow-[0_0_15px_rgba(8,203,0,0.2)]' 
-                : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white bg-transparent'
+                ? 'text-white dark:text-black' 
+                : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
+              {activeTab === 'paid' && (
+                <motion.div
+                  layoutId="holo-bg"
+                  className="absolute inset-0 bg-gray-900 dark:bg-[#08CB00] rounded-full z-[-1] shadow-[0_0_20px_rgba(8,203,0,0.5)]"
+                  initial={false}
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
               Paid
             </button>
 
-            {/* Option 2: Digital Scanner Sweep */}
+            {/* Option 3: Neon Phase Glitch Effect */}
             <motion.div
               key={activeTab}
-              initial={{ x: '-100%' }}
-              animate={{ x: '200%' }}
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: [0, 1, 0.5, 1, 0],
+                x: [-2, 2, -1, 1, 0],
+                scale: [1, 1.05, 0.98, 1.02, 1]
+              }}
               transition={{ 
                 duration: 0.4, 
-                ease: "linear"
+                times: [0, 0.1, 0.2, 0.3, 1],
+                ease: "easeInOut"
               }}
-              className="absolute inset-y-0 w-1/2 z-20 pointer-events-none"
-              style={{
-                background: 'linear-gradient(to right, transparent, rgba(8, 203, 0, 0.4), #08CB00, rgba(8, 203, 0, 0.4), transparent)',
-              }}
-            >
-              {/* Vertical Laser Core */}
-              <div className="absolute inset-y-0 left-1/2 w-0.5 bg-white shadow-[0_0_15px_#08CB00]" />
-            </motion.div>
+              className="absolute inset-0 z-20 pointer-events-none mix-blend-screen bg-[#08CB00]/20 blur-sm"
+            />
 
-            {/* Subtle Static/Grid update effect on toggle background */}
-            <motion.div
-              key={`bg-${activeTab}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.1, 0] }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0 bg-[#08CB00]/10 z-0 pointer-events-none"
+            {/* Scanlines Effect */}
+            <div className="absolute inset-0 pointer-events-none opacity-10 mix-blend-overlay z-0"
+              style={{
+                backgroundImage: 'repeating-linear-gradient(0deg, transparent 0, transparent 1px, black 2px)',
+                backgroundSize: '100% 3px'
+              }}
             />
           </div>
         </div>
