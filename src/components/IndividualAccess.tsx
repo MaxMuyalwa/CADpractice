@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from './ui/Button';
+import { Link } from 'react-router-dom';
 
 export const IndividualAccess = () => {
   const points = [
@@ -52,12 +53,26 @@ export const IndividualAccess = () => {
               CADpractice gives you the tools to succeed.
             </p>
 
-            <Button 
-              size="lg" 
-              className="bg-[#08CB00] hover:bg-[#07b500] text-white dark:text-black font-black px-6 py-4 lg:px-10 lg:py-8 text-base md:text-lg rounded-2xl shadow-[0_0_30px_rgba(8,203,0,0.2)]"
-            >
-              Create your STUDENT ACCOUNT
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 pt-2 max-w-xl">
+              <Button 
+                size="lg" 
+                className="flex-1 bg-[#08CB00] hover:bg-[#07b500] text-white dark:text-black font-black px-4 py-3 lg:px-6 lg:py-4 text-sm md:text-base rounded-xl shadow-[0_0_20px_rgba(8,203,0,0.2)]"
+              >
+                Create STUDENT ACCOUNT
+              </Button>
+              
+              <Button 
+                asChild
+                variant="outline"
+                size="lg" 
+                className="group flex-1 border-gray-300 dark:border-white/20 hover:border-[#08CB00] dark:hover:border-[#08CB00] text-gray-900 dark:text-white font-black px-4 py-3 lg:px-6 lg:py-4 text-sm md:text-base rounded-xl transition-all duration-300"
+              >
+                <Link to="/pricing" className="flex items-center justify-center gap-2">
+                  View Pricing
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+            </div>
           </motion.div>
 
           {/* Right Column */}
