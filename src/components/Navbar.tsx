@@ -43,6 +43,7 @@ export const Navbar = () => {
         {/* Center: Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
           <Link to="/about" className={getNavLinkClass('/about')}>About</Link>
+          <Link to="/pricing" className={getNavLinkClass('/pricing')}>Pricing</Link>
           <Link to="/materials-faq" className={getNavLinkClass('/materials-faq')}>Materials FAQ</Link>
         </div>
 

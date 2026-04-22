@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Calendar } from 'lucide-react';
+import { Calendar, Play } from 'lucide-react';
 import { Button } from './ui/Button';
 
 export const BookDemoCTA = () => {
@@ -28,11 +28,19 @@ export const BookDemoCTA = () => {
           className="flex justify-center"
         >
           <Button 
+            asChild
             size="lg" 
             className="group relative flex items-center justify-center gap-3 bg-[#08CB00] hover:bg-[#07b500] text-white dark:text-black border-none px-8 py-6 lg:px-12 lg:py-8 text-lg lg:text-xl font-black rounded-2xl shadow-[0_0_40px_rgba(8,203,0,0.3)] hover:shadow-[0_0_60px_rgba(8,203,0,0.5)] transition-all duration-300 transform hover:-translate-y-1"
           >
-            <Calendar className="w-5 h-5 lg:w-6 lg:h-6" />
-            Book a Free 15-Minute Demo
+            <a 
+              href="https://calendly.com/toby-cadpractice" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-3"
+            >
+              <Calendar className="w-5 h-5 lg:w-6 lg:h-6" />
+              How it Works
+            </a>
           </Button>
         </motion.div>
       </div>
