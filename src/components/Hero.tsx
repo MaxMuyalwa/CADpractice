@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, PlayCircle, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Calendar, CheckCircle2 } from 'lucide-react';
 import { Button } from './ui/Button';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
@@ -92,12 +92,12 @@ export const Hero = () => {
                 className="flex items-center justify-center gap-2 md:gap-3 px-6 py-4 lg:px-8 lg:py-6 text-base lg:text-lg font-bold text-gray-900 dark:text-white border-gray-300 dark:border-white/20 hover:border-[#08CB00] dark:hover:border-[#08CB00] bg-white/50 dark:bg-white/5 hover:bg-[#08CB00]/10 rounded-2xl transition-all duration-300 backdrop-blur-sm"
               >
                 <a 
-                  href="https://www.youtube.com/watch?v=nIbKGe5stow&list=PLDGrwExMGkBrDZ2biad6LK5aE6-Zw_oh5&index=1" 
+                  href="https://calendly.com/toby-cadpractice" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  <PlayCircle className="w-5 h-5 md:w-6 md:h-6 text-[#08CB00]" />
-                  Watch Demo
+                  <Calendar className="w-5 h-5 md:w-6 md:h-6 text-[#08CB00]" />
+                  Book a Demo
                 </a>
               </Button>
             </div>

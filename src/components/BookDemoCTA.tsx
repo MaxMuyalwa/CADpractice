@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Calendar, Play } from 'lucide-react';
+import { PlayCircle, Play } from 'lucide-react';
 import { Button } from './ui/Button';
 
 export const BookDemoCTA = () => {
@@ -33,12 +33,12 @@ export const BookDemoCTA = () => {
             className="group relative flex items-center justify-center gap-3 bg-[#08CB00] hover:bg-[#07b500] text-white dark:text-black border-none px-8 py-6 lg:px-12 lg:py-8 text-lg lg:text-xl font-black rounded-2xl shadow-[0_0_40px_rgba(8,203,0,0.3)] hover:shadow-[0_0_60px_rgba(8,203,0,0.5)] transition-all duration-300 transform hover:-translate-y-1"
           >
             <a 
-              href="https://calendly.com/toby-cadpractice" 
+              href="https://www.youtube.com/watch?v=nIbKGe5stow&list=PLDGrwExMGkBrDZ2biad6LK5aE6-Zw_oh5&index=1" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-3"
             >
-              <Calendar className="w-5 h-5 lg:w-6 lg:h-6" />
+              <PlayCircle className="w-5 h-5 lg:w-6 lg:h-6" />
               How it Works
             </a>
           </Button>
