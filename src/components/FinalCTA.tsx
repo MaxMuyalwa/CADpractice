@@ -5,11 +5,11 @@ export const FinalCTA = () => {
   return (
     <section className="py-24 relative overflow-hidden transition-colors duration-300">
       {/* Background Accent */}
-      <div className="absolute inset-0 bg-[#08CB00]/5 blur-3xl rounded-full scale-150 opacity-30" />
+      <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full scale-150 opacity-30" />
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2 className="text-4xl lg:text-6xl font-black text-gray-900 dark:text-white mb-8 leading-tight">
-          Ready to Level Up Your <span className="text-[#08CB00]">CAD Skills?</span>
+          Ready to Level Up Your <span className="text-primary">CAD Skills?</span>
         </h2>
         
         <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">

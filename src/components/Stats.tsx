@@ -14,7 +14,7 @@ export const Stats = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
           {stats.map((stat, index) => (
             <div key={index} className="text-center p-8 rounded-[32px] bg-[#E5E5E5] dark:bg-[#000805] shadow-lg">
-              <div className="text-4xl lg:text-5xl font-black text-[#08CB00] mb-3">
+              <div className="text-4xl lg:text-5xl font-black text-primary mb-3">
                 {stat.value}
               </div>
               <div className="text-xs font-black text-gray-600 dark:text-gray-400 uppercase tracking-widest">

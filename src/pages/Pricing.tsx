@@ -160,13 +160,13 @@ export const Pricing = () => {
   const filteredPlans = plans.filter(plan => plan.category === activeTab);
 
   return (
-    <main className="pt-24 lg:pt-32 pb-20 px-4 relative overflow-hidden bg-transparent selection:bg-[#08CB00]/30 min-h-screen">
+    <main className="pt-12 lg:pt-16 pb-20 px-4 relative overflow-hidden bg-transparent selection:bg-primary/30 min-h-screen">
       {/* Background System */}
-      <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-[#08CB00]/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-[#08CB00]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.05]" 
         style={{ 
-          backgroundImage: `linear-gradient(to right, rgba(8, 203, 0, 0.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(8, 203, 0, 0.4) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, rgba(var(--matrix-green-rgb, 34, 160, 75), 0.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(var(--matrix-green-rgb, 34, 160, 75), 0.4) 1px, transparent 1px)`,
           backgroundSize: '40px 40px',
           WebkitMaskImage: 'radial-gradient(ellipse at center, white 20%, transparent 95%)',
           maskImage: 'radial-gradient(ellipse at center, white 20%, transparent 95%)'
@@ -182,7 +182,7 @@ export const Pricing = () => {
             className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 dark:text-white mb-6 tracking-tight uppercase"
           >
             Improve Your CAD Skills. <br className="hidden md:block" />
-            <span className="text-[#08CB00]">Choose Your Plan.</span>
+            <span className="text-primary">Choose Your Plan.</span>
           </motion.h1>
           <motion.p className="text-xs md:text-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-bold uppercase tracking-tight opacity-90">
             Whether you’re a student building skills or an educator managing a classroom, we have a plan for you.
@@ -204,7 +204,7 @@ export const Pricing = () => {
               {activeTab === 'student' && (
                 <motion.div
                   layoutId="holo-bg"
-                  className="absolute inset-0 bg-gray-900 dark:bg-[#08CB00] rounded-full z-[-1] shadow-[0_0_20px_rgba(8,203,0,0.5)]"
+                  className="absolute inset-0 bg-gray-900 dark:bg-primary rounded-full z-[-1] shadow-[0_0_20px_rgba(var(--primary-rgb,34,160,75),0.5)]"
                   initial={false}
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
@@ -223,7 +223,7 @@ export const Pricing = () => {
               {activeTab === 'educator' && (
                 <motion.div
                   layoutId="holo-bg"
-                  className="absolute inset-0 bg-gray-900 dark:bg-[#08CB00] rounded-full z-[-1] shadow-[0_0_20px_rgba(8,203,0,0.5)]"
+                  className="absolute inset-0 bg-gray-900 dark:bg-primary rounded-full z-[-1] shadow-[0_0_20px_rgba(var(--primary-rgb,34,160,75),0.5)]"
                   initial={false}
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
@@ -245,7 +245,7 @@ export const Pricing = () => {
                 times: [0, 0.1, 0.2, 0.3, 1],
                 ease: "easeInOut"
               }}
-              className="absolute inset-0 z-20 pointer-events-none mix-blend-screen bg-[#08CB00]/20 blur-sm"
+              className="absolute inset-0 z-20 pointer-events-none mix-blend-screen bg-primary/20 blur-sm"
             />
 
             {/* Scanlines Effect */}
@@ -266,7 +266,7 @@ export const Pricing = () => {
                 key={plan.name}
                 className={`pricing-card relative flex flex-col rounded-[2.5rem] border transition-all duration-500 overflow-hidden ${
                   plan.isPopular 
-                  ? 'bg-white dark:bg-black/60 border-[#08CB00]/40 shadow-2xl ring-4 ring-[#08CB00]/5' 
+                  ? 'bg-white dark:bg-black/60 border-primary/40 shadow-2xl ring-4 ring-primary/5' 
                   : plan.name.includes('Educator') && plan.type === 'paid'
                     ? 'bg-gray-50 dark:bg-white/[0.03] border-gray-200 dark:border-white/20 shadow-xl'
                     : 'bg-white/90 dark:bg-black/40 border-gray-200 dark:border-white/10 backdrop-blur-3xl shadow-xl'
@@ -280,8 +280,8 @@ export const Pricing = () => {
                         {plan.price}
                       </span>
                       {plan.note && (
-                        <div className="bg-[#08CB00]/20 border border-[#08CB00]/30 px-2 py-0.5 rounded-sm">
-                          <p className="text-[7px] font-black text-[#08CB00] uppercase tracking-[0.1em]">{plan.note}</p>
+                        <div className="bg-primary/20 border border-primary/30 px-2 py-0.5 rounded-sm">
+                          <p className="text-[7px] font-black text-primary uppercase tracking-[0.1em]">{plan.note}</p>
                         </div>
                       )}
                     </div>
@@ -291,7 +291,7 @@ export const Pricing = () => {
                         {plan.period}
                       </p>
                       {plan.footerNote && (
-                        <p className="text-[11px] font-bold text-[#08CB00] leading-snug tracking-tight italic">
+                        <p className="text-[11px] font-bold text-primary leading-snug tracking-tight italic">
                           {plan.footerNote}
                         </p>
                       )}
@@ -302,13 +302,13 @@ export const Pricing = () => {
                   <div className="flex-1 p-6 flex flex-col bg-gray-50/30 dark:bg-white/[0.01]">
                      <div className="card-header mb-4">
                        <h3 className="text-[11px] font-black text-gray-900 dark:text-white uppercase tracking-[0.2em]">{plan.name}</h3>
-                       <p className="text-[9px] font-bold text-[#08CB00] uppercase tracking-wider">{plan.subheading}</p>
+                       <p className="text-[9px] font-bold text-primary uppercase tracking-wider">{plan.subheading}</p>
                      </div>
                      
                      <ul className="space-y-3 mb-4 flex-1">
                       {plan.features.map((item, j) => (
                         <li key={j} className="feature-item flex gap-2.5 items-start group/item">
-                          <CheckCircle2 className={`w-3.5 h-3.5 mt-0.5 shrink-0 ${plan.variant === 'primary' ? 'text-[#08CB00]' : 'text-gray-400 dark:text-white/30'}`} />
+                          <CheckCircle2 className={`w-3.5 h-3.5 mt-0.5 shrink-0 ${plan.variant === 'primary' ? 'text-primary' : 'text-gray-400 dark:text-white/30'}`} />
                           <span 
                             className="text-[10px] leading-snug font-bold text-gray-700 dark:text-white group-hover/item:text-gray-900 dark:group-hover/item:text-green-400 transition-colors"
                             dangerouslySetInnerHTML={{ __html: item.text }}
@@ -318,8 +318,8 @@ export const Pricing = () => {
                     </ul>
 
                       {plan.upsellBanner && (
-                        <div className="mt-4 p-2 bg-[#08CB00]/10 border border-[#08CB00]/20 rounded-lg">
-                          <p className="text-[8px] font-black text-[#08CB00] uppercase text-center">{plan.upsellBanner}</p>
+                        <div className="mt-4 p-2 bg-primary/10 border border-primary/20 rounded-lg">
+                          <p className="text-[8px] font-black text-primary uppercase text-center">{plan.upsellBanner}</p>
                         </div>
                       )}
                     </div>
@@ -330,7 +330,7 @@ export const Pricing = () => {
                     <Button 
                       className={`w-full py-4 rounded-xl font-black uppercase tracking-[0.3em] text-[12px] transition-all duration-300 border-none shadow-lg ${
                         plan.variant === 'primary' 
-                        ? 'bg-[#08CB00] text-black hover:bg-[#07b500] hover:scale-[1.01] active:scale-[0.98]' 
+                        ? 'bg-primary text-primary-foreground hover:bg-primary/95 hover:scale-[1.01] active:scale-[0.98]' 
                         : 'bg-white dark:bg-transparent text-gray-900 dark:text-white border-2 border-gray-200 dark:border-white/20 hover:border-gray-400 dark:hover:border-white/40 hover:scale-[1.01] active:scale-[0.98]'
                       }`}
                     >
@@ -345,7 +345,7 @@ export const Pricing = () => {
                         </div>
                       )}
                       {plan.secondaryCta && (
-                        <button className="text-[10px] font-black text-gray-400 hover:text-[#08CB00] transition-colors uppercase tracking-[0.2em] flex items-center gap-1 group">
+                        <button className="text-[10px] font-black text-gray-400 hover:text-primary transition-colors uppercase tracking-[0.2em] flex items-center gap-1 group">
                           <FileText className="w-3 h-3 transition-transform group-hover:scale-110" />
                           {plan.secondaryCta}
                         </button>
@@ -386,13 +386,13 @@ export const Pricing = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative p-8 bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-3xl overflow-hidden hover:border-[#08CB00]/60 hover:shadow-[0_20px_40px_rgba(8,203,0,0.15)] transition-all duration-500"
+                className="group relative p-8 bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-3xl overflow-hidden hover:border-primary/60 hover:shadow-[0_20px_40px_rgba(var(--primary-rgb,34,160,75),0.15)] transition-all duration-500"
               >
                 {/* Hover Glow Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#08CB00]/0 via-transparent to-[#08CB00]/0 group-hover:from-[#08CB00]/5 transition-all duration-700 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-transparent to-primary/0 group-hover:from-primary/5 transition-all duration-700 pointer-events-none" />
 
-                <div className="mb-8 p-3 w-fit bg-gray-50 dark:bg-white/5 rounded-2xl group-hover:bg-[#08CB00]/10 transition-colors relative z-10">
-                  <item.icon className="w-6 h-6 text-gray-400 dark:text-white/40 group-hover:text-[#08CB00] transition-colors" />
+                <div className="mb-8 p-3 w-fit bg-gray-50 dark:bg-white/5 rounded-2xl group-hover:bg-primary/10 transition-colors relative z-10">
+                  <item.icon className="w-6 h-6 text-gray-400 dark:text-white/40 group-hover:text-primary transition-colors" />
                 </div>
 
                 <div className="space-y-3 relative z-10">
@@ -406,7 +406,7 @@ export const Pricing = () => {
 
                 {/* Bottom Border Glow */}
                 <div className="absolute bottom-0 left-0 w-full h-[2px] bg-transparent overflow-hidden">
-                  <div className="w-full h-full bg-[#08CB00] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+                  <div className="w-full h-full bg-primary translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
                 </div>
               </motion.div>
             ))}

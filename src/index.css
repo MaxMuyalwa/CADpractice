@@ -10,8 +10,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #08CB00;
-  --primary-foreground: #000000;
+  --primary: #22A04B;
+  --primary-foreground: #ffffff;
   --secondary: oklch(0.95 0.0058 264.53);
   --secondary-foreground: #030213;
   --muted: #ececf0;
@@ -43,9 +43,9 @@
   --sidebar-ring: oklch(0.708 0 0);
   
   /* Matrix Theme Colors */
-  --matrix-green: #08CB00;
-  --matrix-glow: rgba(8, 203, 0, 0.3);
-  --matrix-glow-intense: rgba(8, 203, 0, 0.6);
+  --matrix-green: #22A04B;
+  --matrix-glow: rgba(34, 160, 75, 0.3);
+  --matrix-glow-intense: rgba(34, 160, 75, 0.6);
   --matrix-card-bg: rgba(255, 255, 255, 0.7);
   --matrix-border: rgba(0, 0, 0, 0.1);
   
@@ -58,7 +58,7 @@
   --shadow-light: #FFFFFF;
   --shadow-dark: rgba(13, 39, 80, 0.2);
   --shadow-dark-intense: rgba(13, 39, 80, 0.3);
-  --green-primary: #08CB00;
+  --green-primary: #22A04B;
   --text-primary: #2D3748;
   --text-secondary: #4A5568;
 }
@@ -102,6 +102,9 @@
   --shadow-dark: rgba(0, 0, 0, 0.6);
   --shadow-dark-intense: rgba(0, 0, 0, 0.8);
   --green-primary: #08CB00;
+  --matrix-green: #08CB00;
+  --matrix-glow: rgba(8, 203, 0, 0.3);
+  --matrix-glow-intense: rgba(8, 203, 0, 0.6);
   --text-primary: #FFFFFF;
   --text-secondary: oklch(0.708 0 0);
   
@@ -493,7 +496,7 @@ html {
 
 .star {
     position: absolute;
-    background: #08CB00; /* CADpractice Matrix Green */
+    background: var(--matrix-green); /* Use variable instead of hardcoded neon */
     border-radius: 50%;
     opacity: 0.4;
     animation: twinkle var(--duration, 3s) infinite ease-in-out;

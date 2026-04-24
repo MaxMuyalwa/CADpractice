@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 
 export const About = () => {
   return (
-    <main className="pt-20 md:pt-24 lg:pt-32 pb-20 px-6 md:px-12 relative z-10 min-h-screen text-gray-900 dark:text-white">
+    <main className="pt-10 md:pt-12 lg:pt-16 pb-20 px-6 md:px-12 relative z-10 min-h-screen text-gray-900 dark:text-white">
       <div className="max-w-4xl mx-auto space-y-12 md:space-y-16">
         {/* Page Title */}
         <motion.h1 
@@ -23,7 +23,7 @@ export const About = () => {
           transition={{ duration: 0.6 }}
           className="space-y-4"
         >
-          <h2 className="text-[#08CB00] text-3xl md:text-4xl font-black uppercase tracking-tight">Our Mission</h2>
+          <h2 className="text-primary text-3xl md:text-4xl font-black uppercase tracking-tight">Our Mission</h2>
           <p className="text-lg md:text-xl leading-relaxed text-gray-600 dark:text-gray-300">
             Our mission is to transform CAD education through game-based learning and actionable analytics, providing educators with the tools to keep students inspired and the insights to support their individual growth.
           </p>
@@ -37,7 +37,7 @@ export const About = () => {
           transition={{ duration: 0.6 }}
           className="space-y-4"
         >
-          <h2 className="text-[#08CB00] text-3xl md:text-4xl font-black uppercase tracking-tight">Our Vision</h2>
+          <h2 className="text-primary text-3xl md:text-4xl font-black uppercase tracking-tight">Our Vision</h2>
           <p className="text-lg md:text-xl leading-relaxed text-gray-600 dark:text-gray-300">
             Our vision is to become the global benchmark for student engagement in technical education, setting a new standard where progress is measured not just by the final answer, but by the persistence and skills demonstrated along the journey.
           </p>
@@ -51,7 +51,7 @@ export const About = () => {
           transition={{ duration: 0.6 }}
           className="space-y-8"
         >
-          <h2 className="text-[#08CB00] text-3xl md:text-4xl font-black uppercase tracking-tight">
+          <h2 className="text-primary text-3xl md:text-4xl font-black uppercase tracking-tight">
             Our History: From Global Tournaments to the Classroom
           </h2>
           
@@ -90,7 +90,7 @@ export const About = () => {
           transition={{ duration: 0.6 }}
           className="space-y-10"
         >
-          <h2 className="text-[#08CB00] text-3xl md:text-4xl font-black uppercase tracking-tight">Meet the Founders</h2>
+          <h2 className="text-primary text-3xl md:text-4xl font-black uppercase tracking-tight">Meet the Founders</h2>
           
           <div className="space-y-12">
             <div className="space-y-4">
@@ -112,7 +112,7 @@ export const About = () => {
                 His deep industry roots include many years working with top SOLIDWORKS resellers followed by SOLIDWORKS (Dassault Systemes). This journey from the front lines of CAD support to global leadership allowed him to see firsthand what was missing in CAD education. Today, he uses 30 years of experience to architect the challenges that prepare students for the demands of the modern workforce.
               </p>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                In addition to architecturing challenges for CADpractice, Toby offers in-depth instruction through <a href="https://tootalltoby.thinkific.com/" target="_blank" rel="noopener noreferrer" className="text-[#08CB00] font-bold hover:underline">Thinkific Training</a>.
+                In addition to architecturing challenges for CADpractice, Toby offers in-depth instruction through <a href="https://tootalltoby.thinkific.com/" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline">Thinkific Training</a>.
               </p>
             </div>
           </div>
@@ -145,9 +145,9 @@ export const About = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
             Experience a better way to teach, practice, and learn.
           </h2>
-          <button className="px-8 py-3 lg:px-10 lg:py-4 bg-[#08CB00] text-white dark:text-black font-black uppercase tracking-widest rounded-md hover:bg-[#0aed00] transition-all transform hover:scale-105">
+          <Button size="lg" className="px-10 py-4 font-black uppercase tracking-widest">
             Get Started
-          </button>
+          </Button>
         </motion.div>
       </div>
     </main>

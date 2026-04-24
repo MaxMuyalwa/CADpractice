@@ -143,7 +143,7 @@ export const SocialProofGallery = () => {
     <section ref={sectionRef} className="social-proof-gallery relative w-full h-screen overflow-hidden bg-[#E5E5E5] dark:bg-[#000805] transition-colors duration-300">
       <div className="gallery absolute w-full h-full overflow-hidden">
         <div className="absolute top-8 md:top-12 left-0 w-full text-center z-20">
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black italic tracking-tighter uppercase text-[#08CB00] mb-2">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black italic tracking-tighter uppercase text-primary mb-2">
             Expert Authority
           </h2>
           <p className="text-gray-600 dark:text-gray-400 font-bold uppercase tracking-widest text-xs opacity-60">
@@ -163,15 +163,15 @@ export const SocialProofGallery = () => {
 
         <div className="actions absolute bottom-[40px] left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-6 z-20">
           <div className="flex items-center justify-center gap-4">
-            <button className="prev px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-white dark:hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
+            <button className="prev px-6 py-2 border border-primary/30 text-primary/70 font-bold uppercase tracking-widest hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all rounded-full text-[10px]">
               Prev
             </button>
-            <button className="next px-6 py-2 border border-[#08CB00]/30 text-[#08CB00]/70 font-bold uppercase tracking-widest hover:bg-[#08CB00] hover:text-white dark:hover:text-black hover:border-[#08CB00] transition-all rounded-full text-[10px]">
+            <button className="next px-6 py-2 border border-primary/30 text-primary/70 font-bold uppercase tracking-widest hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all rounded-full text-[10px]">
               Next
             </button>
           </div>
           
-          <Button className="bg-[#08CB00] text-white dark:text-black hover:bg-[#08CB00]/90 font-bold px-8 py-6 rounded-xl text-lg shadow-[0_0_20px_rgba(8,203,0,0.3)] hover:shadow-[0_0_30px_rgba(8,203,0,0.5)] transition-all hover:-translate-y-1">
+          <Button className="font-bold px-8 py-6 rounded-xl text-lg backdrop-blur-sm">
             Join 500+ Educators
           </Button>
         </div>

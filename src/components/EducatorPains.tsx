@@ -108,7 +108,7 @@ export const EducatorPains = () => {
         <div ref={leftColRef} className="w-full md:w-5/12 h-screen flex items-center pr-0 md:pr-12 lg:pr-16 z-10 mb-12 md:mb-0">
           <div className="flex flex-col">
             <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black text-gray-900 dark:text-white mb-4 md:mb-8 leading-tight tracking-tight">
-              The <span className="text-[#08CB00]">CAD Educator's</span> Struggle
+              The <span className="text-primary">CAD Educator's</span> Struggle
             </h2>
             <div className="space-y-3 md:space-y-6">
               <p className="text-lg sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -131,14 +131,14 @@ export const EducatorPains = () => {
             >
               <div className="space-y-6">
                 <div>
-                  <div className="text-[#08CB00] font-bold mb-1">Challenge:</div>
-                  <div className="text-[#08CB00] text-xl sm:text-2xl font-bold leading-tight">
+                  <div className="text-primary font-bold mb-1">Challenge:</div>
+                  <div className="text-primary text-xl sm:text-2xl font-bold leading-tight">
                     {pain.challenge}
                   </div>
                 </div>
 
                 <div className="w-16 h-16 bg-gray-100 dark:bg-white/5 rounded-xl flex items-center justify-center border border-gray-200 dark:border-white/10">
-                  <pain.icon className="w-8 h-8 text-[#08CB00]" />
+                  <pain.icon className="w-8 h-8 text-primary" />
                 </div>
 
                 <div>

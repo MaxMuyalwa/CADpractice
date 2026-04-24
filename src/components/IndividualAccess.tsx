@@ -41,7 +41,7 @@ export const IndividualAccess = () => {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white leading-tight tracking-tight">
                 Individual Access - $50/Year
               </h2>
-              <h3 className="text-xl md:text-3xl font-bold text-[#08CB00]">
+              <h3 className="text-xl md:text-3xl font-bold text-primary">
                 Not in a Classroom? <br />
                 Practice on Your Own.
               </h3>
@@ -56,7 +56,7 @@ export const IndividualAccess = () => {
             <div className="flex flex-col sm:flex-row gap-4 pt-2 max-w-xl">
               <Button 
                 size="lg" 
-                className="flex-1 bg-[#08CB00] hover:bg-[#07b500] text-white dark:text-black font-black px-4 py-3 lg:px-6 lg:py-4 text-sm md:text-base rounded-xl shadow-[0_0_20px_rgba(8,203,0,0.2)]"
+                className="flex-1 bg-primary hover:bg-primary/90 text-white dark:text-black font-black px-4 py-3 lg:px-6 lg:py-4 text-sm md:text-base rounded-xl"
               >
                 Create STUDENT ACCOUNT
               </Button>
@@ -65,7 +65,7 @@ export const IndividualAccess = () => {
                 asChild
                 variant="outline"
                 size="lg" 
-                className="group flex-1 border-gray-300 dark:border-white/20 hover:border-[#08CB00] dark:hover:border-[#08CB00] text-gray-900 dark:text-white font-black px-4 py-3 lg:px-6 lg:py-4 text-sm md:text-base rounded-xl transition-all duration-300"
+                className="group flex-1 border-gray-300 dark:border-white/20 hover:border-primary dark:hover:border-primary text-gray-900 dark:text-white font-black px-4 py-3 lg:px-6 lg:py-4 text-sm md:text-base rounded-xl transition-all duration-300"
               >
                 <Link to="/pricing" className="flex items-center justify-center gap-2">
                   View Pricing
@@ -86,7 +86,7 @@ export const IndividualAccess = () => {
             {points.map((point, i) => (
               <div key={i} className="flex gap-4 items-start group">
                 <div className="mt-1">
-                  <CheckCircle2 className="w-6 h-6 text-[#08CB00] fill-[#08CB00]/10" />
+                  <CheckCircle2 className="w-6 h-6 text-primary fill-primary/10" />
                 </div>
                 <div className="space-y-1">
                   <p className="text-lg font-bold text-gray-900 dark:text-white">

@@ -44,7 +44,7 @@ export const Testimonials = () => {
         {/* Testimonials Title */}
         <div className="mb-8 md:mb-12">
           <h3 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white">
-            What <span className="text-[#08CB00]">Educators</span> are Saying
+            What <span className="text-primary">Educators</span> are Saying
           </h3>
         </div>
 

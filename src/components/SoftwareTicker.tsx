@@ -46,7 +46,7 @@ export const SoftwareTicker = () => {
                 {software}
               </span>
             ))}
-            <span className="text-lg md:text-xl font-bold italic text-[#08CB00] opacity-80 uppercase tracking-tight">
+            <span className="text-lg md:text-xl font-bold italic text-primary opacity-80 uppercase tracking-tight">
               & More...
             </span>
           </div>
@@ -58,7 +58,7 @@ export const SoftwareTicker = () => {
             {[...softwares, ...softwares].map((software, i) => (
               <span 
                 key={i} 
-                className="relative pb-2 text-4xl font-black italic text-gray-900 dark:text-white opacity-40 hover:opacity-100 transition-all duration-300 cursor-default flex-shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[5px] after:bg-[#08CB00] after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"
+                className="relative pb-2 text-4xl font-black italic text-gray-900 dark:text-white opacity-40 hover:opacity-100 transition-all duration-300 cursor-default flex-shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[5px] after:bg-primary after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"
               >
                 {software}
               </span>

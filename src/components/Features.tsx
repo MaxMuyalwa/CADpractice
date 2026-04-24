@@ -83,7 +83,7 @@ export const Features = () => {
         <div className="text-center mb-20">
           <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4 flex flex-wrap justify-center items-center">
             <RevealText text="The End of CAD" />
-            <span className="text-[#08CB00] mx-[0.25em]">
+            <span className="text-primary mx-[0.25em]">
               <RevealText text="Grading" delay={0.3} />
             </span>
             <RevealText text="Bottlenecks" delay={0.5} />
@@ -108,7 +108,7 @@ export const Features = () => {
                 group-hover:scale-110
                 transition-all duration-300
                 shadow-inner">
-                <feature.icon className="w-8 h-8 text-[#08CB00]" />
+                <feature.icon className="w-8 h-8 text-primary" />
               </div>
               
               {/* Title */}

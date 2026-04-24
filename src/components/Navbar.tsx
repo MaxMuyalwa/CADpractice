@@ -22,20 +22,20 @@ export const Navbar = () => {
     const active = isActive(href);
     return `text-sm font-bold transition-colors duration-300 ${
       active 
-        ? 'text-[#08CB00] dark:text-[#08CB00]' 
-        : 'text-gray-600 dark:text-gray-300 hover:text-[#08CB00] dark:hover:text-[#08CB00]'
+        ? 'text-primary dark:text-primary' 
+        : 'text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary'
     }`;
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md transition-colors duration-300">
+    <nav className="sticky top-0 left-0 right-0 z-50 bg-white/60 dark:bg-black/60 backdrop-blur-md transition-colors duration-300">
       <div className="flex items-center justify-between px-6 md:px-12 py-3 lg:py-4 w-full mx-auto">
         {/* Left: Logo */}
         <div className="flex-1 flex justify-start">
           <Link to="/" className="flex items-center gap-2">
             <Logo className="w-10 h-10" />
             <span className="text-2xl font-black tracking-tight text-gray-900 dark:text-white">
-              CAD<span className="text-[#08CB00]">practice</span>
+              CAD<span className="text-primary">practice</span>
             </span>
           </Link>
         </div>

@@ -22,15 +22,15 @@ export const Hero = () => {
 
   return (
     <section 
-      className="relative min-h-[calc(100vh-80px)] pt-20 md:pt-24 lg:pt-32 pb-8 md:pb-12 overflow-hidden bg-transparent"
+      className="relative min-h-[calc(100vh-80px)] pt-12 md:pt-16 lg:pt-20 pb-8 md:pb-12 overflow-hidden bg-transparent"
       style={{ 
         WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
         maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
       }}
     >
       {/* Background Glows */}
-      <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-[#08CB00]/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-[#08CB00]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
         <div className="grid md:grid-cols-2 gap-6 md:gap-4 lg:gap-24 items-center">
@@ -47,7 +47,7 @@ export const Hero = () => {
                 The Perfect Tool for <br />
                 <span className="text-gray-900 dark:text-white">CAD Practice</span>
               </h1>
-              <p className="text-base sm:text-lg lg:text-2xl font-bold text-[#08CB00] italic tracking-tight">
+              <p className="text-base sm:text-lg lg:text-2xl font-bold text-primary italic tracking-tight">
                 The "Smarter CAD Workbook" for STEM Educators
               </p>
             </div>
@@ -61,8 +61,8 @@ export const Hero = () => {
                   transition={{ delay: 0.2 + index * 0.1 }}
                   className="flex gap-4 items-start group"
                 >
-                  <div className="mt-1 bg-[#08CB00]/10 dark:bg-[#08CB00]/20 p-1 rounded-md">
-                    <CheckCircle2 className="w-5 h-5 text-[#08CB00]" />
+                  <div className="mt-1 bg-primary/10 dark:bg-primary/20 p-1 rounded-md">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
                   </div>
                   <div className="space-y-1">
                     <p className="text-lg font-bold text-gray-900 dark:text-white leading-tight">
@@ -77,7 +77,7 @@ export const Hero = () => {
               <Button 
                 asChild
                 size="lg" 
-                className="group relative flex items-center justify-center gap-2 md:gap-3 bg-[#08CB00] hover:bg-[#07b500] text-white dark:text-black border-none px-6 py-4 lg:px-8 lg:py-6 text-base lg:text-lg font-bold rounded-2xl shadow-[0_0_30px_rgba(8,203,0,0.3)] hover:shadow-[0_0_40px_rgba(8,203,0,0.5)] transition-all duration-300"
+                className="group relative flex items-center justify-center gap-2 md:gap-3 bg-primary hover:bg-primary/90 text-primary-foreground border-none px-6 py-4 lg:px-8 lg:py-6 text-base lg:text-lg font-bold rounded-2xl shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300"
               >
                 <Link to="/challenges">
                   Try Free Challenge
@@ -89,14 +89,14 @@ export const Hero = () => {
                 asChild
                 variant="outline" 
                 size="lg" 
-                className="flex items-center justify-center gap-2 md:gap-3 px-6 py-4 lg:px-8 lg:py-6 text-base lg:text-lg font-bold text-gray-900 dark:text-white border-gray-300 dark:border-white/20 hover:border-[#08CB00] dark:hover:border-[#08CB00] bg-white/50 dark:bg-white/5 hover:bg-[#08CB00]/10 rounded-2xl transition-all duration-300 backdrop-blur-sm"
+                className="flex items-center justify-center gap-2 md:gap-3 px-6 py-4 lg:px-8 lg:py-6 text-base lg:text-lg font-bold text-gray-900 dark:text-white border-gray-300 dark:border-white/20 hover:border-primary dark:hover:border-primary bg-white/50 dark:bg-white/5 hover:bg-primary/10 rounded-2xl transition-all duration-300 backdrop-blur-sm"
               >
                 <a 
                   href="https://calendly.com/toby-cadpractice" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  <Calendar className="w-5 h-5 md:w-6 md:h-6 text-[#08CB00]" />
+                  <Calendar className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   Book a Demo
                 </a>
               </Button>
@@ -125,8 +125,7 @@ export const Hero = () => {
                 }}
               />
               
-              {/* Glow effect behind image */}
-              <div className="absolute -inset-4 bg-[#08CB00]/20 rounded-[2rem] blur-3xl opacity-50 transition-opacity duration-500 z-0" />
+              <div className="absolute -inset-4 bg-primary/20 rounded-[2rem] blur-3xl opacity-50 transition-opacity duration-500 z-0" />
               
               <div 
                 className="relative z-10 rounded-[2rem] overflow-hidden border border-gray-200/50 dark:border-white/10 shadow-2xl transform-gpu transition-transform duration-700 aspect-[1/1.15] max-h-[450px] md:max-h-[550px] lg:max-h-[850px] mx-auto bg-transparent"
@@ -150,9 +149,8 @@ export const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
               </div>
 
-              {/* Decorative elements */}
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#08CB00]/10 rounded-full blur-2xl animate-pulse" />
-              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-[#08CB00]/5 rounded-full blur-3xl animate-pulse delay-700" />
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl animate-pulse" />
+              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary/5 rounded-full blur-3xl animate-pulse delay-700" />
             </div>
           </motion.div>
 

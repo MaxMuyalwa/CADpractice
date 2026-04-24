@@ -8,27 +8,27 @@ export const FAQ = () => {
     {
       q: "Does CAD PRACTICE have curriculum resources?",
       a: "Yes, we have standard-aligned modules spanning all core CAD competencies that plug seamlessly into your existing curriculum.",
-      icon: <BookOpen className="w-5 h-5 text-[#08CB00]" />
+      icon: <BookOpen className="w-5 h-5 text-primary" />
     },
     {
       q: "Can I customize my tests?",
       a: "Yes, CAD PRACTICE allows for deep customization. You can tailor assessments to match your specific syllabus and target the exact skills you want to test.",
-      icon: <CheckCircle2 className="w-5 h-5 text-[#08CB00]" />
+      icon: <CheckCircle2 className="w-5 h-5 text-primary" />
     },
     {
       q: "What is the Money Back Guarantee?",
       a: "We offer a 100% exam pass money-back guarantee. If your students complete our required modules and do not pass their official certification exams, we will refund your licensing costs.",
-      icon: <ShieldCheck className="w-5 h-5 text-[#08CB00]" />
+      icon: <ShieldCheck className="w-5 h-5 text-primary" />
     },
     {
       q: "Is my student data secure?",
       a: "Absolutely. We strictly adhere to student data privacy regulations (FERPA/COPPA compliant) to ensure all student information is encrypted, safe, and private.",
-      icon: <Lock className="w-5 h-5 text-[#08CB00]" />
+      icon: <Lock className="w-5 h-5 text-primary" />
     },
     {
       q: "Is there an online dashboard to track my students?",
       a: "Yes! We offer a free online dashboard to manage and evaluate the progress of up to 10 students. For larger classes, our premium tiers support anywhere from 10 to 10,000+ students.",
-      icon: <BarChart3 className="w-5 h-5 text-[#08CB00]" />
+      icon: <BarChart3 className="w-5 h-5 text-primary" />
     }
   ];
 
@@ -65,7 +65,7 @@ export const FAQ = () => {
                   <span className="font-bold text-gray-900 dark:text-white">{faq.q}</span>
                 </div>
                 <ChevronDown 
-                  className={`w-5 h-5 transition-transform duration-300 ${openFaq === index ? 'rotate-180 text-[#08CB00]' : 'text-gray-600 dark:text-gray-400'}`} 
+                  className={`w-5 h-5 transition-transform duration-300 ${openFaq === index ? 'rotate-180 text-primary' : 'text-gray-600 dark:text-gray-400'}`} 
                 />
               </button>
               

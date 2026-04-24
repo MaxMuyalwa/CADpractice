@@ -9,7 +9,7 @@ interface LegalLayoutProps {
 
 export const LegalLayout = ({ title, lastUpdated, children }: LegalLayoutProps) => {
   return (
-    <main className="pt-32 pb-20 px-4 relative min-h-screen bg-transparent overflow-hidden">
+    <main className="pt-20 pb-20 px-4 relative min-h-screen bg-transparent overflow-hidden">
       {/* Background System */}
       <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-[#08CB00]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.03]" 
